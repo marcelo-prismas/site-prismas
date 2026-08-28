@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prismas Consulting Ltda | Estratégia, ERP e Inteligência de Dados</title>
+    
+    <!-- Fontes do Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Biblioteca de Ícones Profissionais (FontAwesome) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Paleta de Cores Atualizada - Baseada na Logo */
+        :root {
+            --primary-text: #2A3338; /* Cinza chumbo escuro da logo */
+            --secondary-text: #5A6368;
+            --gold: #B89346; /* Dourado envelhecido da logo */
+            --gold-hover: #9e7d3a; 
+            --main-bg: #FCFAF5;
+            --alt-bg: #F4EFE6;
+            --border-color: #E5DEC6;
+            --whatsapp: #25D366; /* Verde Oficial do WhatsApp */
+        }
+
+        /* Reset Global */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--secondary-text);
+            background-color: var(--main-bg);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-text);
+            font-weight: 600;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        /* Header e Navegação */
+        header {
+            background-color: var(--main-bg);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.04);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+       
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        nav a {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--primary-text);
+        }
+
+        nav a:hover {
+            color: var(--gold);
+        }
+
+        .cta-btn {
+            background-color: var(--gold);
+            color: var(--main-bg);
+            padding: 10px 24px;
+            border-radius: 4px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+        }
+
+        .cta-btn:hover {
+            background-color: var(--primary-text);
+            color: var(--main-bg);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            background: linear-gradient(135deg, var(--main-bg) 0%, var(--alt-bg) 100%);
+            display: flex;
+            align-items: center;
+            padding: 0 10%;
+            overflow: hidden;
+            margin-top: 70px;
+        }
+
+        #dataNetwork {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1; 
+            pointer-events: none; 
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            max-width: 800px;
+        }
+
+        .hero-content h1 {
+            color: var(--primary-text);
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero-content h1 span {
+            color: var(--gold);
+        }
+
+        .hero-content p {
+            color: var(--secondary-text);
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            max-width: 650px;
+            font-weight: 400;
+        }
+
+        .hero-kpi-container {
+            display: flex;
+            gap: 40px;
+            margin-bottom: 40px;
+            border-left: 4px solid var(--gold);
+            padding-left: 20px;
+            background: rgba(252, 250, 245, 0.85);
+            padding: 15px 20px;
+            border-radius: 0 8px 8px 0;
+            backdrop-filter: blur(5px);
+        }
+        
+        .hero-kpi {
+            color: var(--primary-text);
+        }
+        
+        .hero-kpi span {
+            display: block;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: var(--gold);
+            font-weight: 700;
+            line-height: 1.1;
+        }
+        
+        .hero-kpi p {
+            font-size: 0.85rem;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        /* Seções Gerais */
+        section {
+            padding: 100px 10%;
+            position: relative;
+            z-index: 2; 
+            background-color: var(--main-bg);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--gold);
+        }
+
+        /* Sobre e Abordagem */
+        .about {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--primary-text);
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+
+        .about-visual {
+            flex: 1;
+            position: relative;
+            height: 400px;
+            background: var(--alt-bg);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--border-color);
+        }
+
+        .chart-animation {
+            display: flex;
+            align-items: flex-end;
+            gap: 20px;
+            height: 200px;
+        }
+        
+        .bar {
+            width: 45px;
+            border-radius: 4px 4px 0 0;
+            animation: growBar 2.5s ease-out infinite alternate;
+            position: relative;
+        }
+
+        .bar:nth-child(1) { height: 60px; animation-delay: 0s; background-color: rgba(42, 51, 56, 0.3); }
+        .bar:nth-child(2) { height: 110px; animation-delay: 0.2s; background-color: rgba(42, 51, 56, 0.6); }
+        .bar:nth-child(3) { height: 150px; animation-delay: 0.4s; background-color: rgba(42, 51, 56, 0.9); }
+        .bar:nth-child(4) { 
+            height: 190px; 
+            animation-delay: 0.6s; 
+            background-color: var(--gold); 
+            box-shadow: 0 0 25px rgba(184, 147, 70, 0.4); 
+        }
+
+        @keyframes growBar {
+            0% { transform: scaleY(0.5); transform-origin: bottom; }
+            100% { transform: scaleY(1); transform-origin: bottom; }
+        }
+
+        /* Áreas de Atuação */
+        .services {
+            background-color: var(--alt-bg);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--main-bg);
+            padding: 45px 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 25px rgba(0,0,0,0.03);
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background-color: var(--gold);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.06);
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-icon {
+            font-size: 2.8rem;
+            margin-bottom: 25px;
+            color: var(--gold);
+        }
+
+        .service-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        /* Rede de Especialistas */
+        .network {
+            background-color: var(--main-bg);
+            color: var(--secondary-text);
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .network-stats {
+            display: flex;
+            justify-content: center;
+            gap: 80px;
+            margin-top: 50px;
+        }
+
+        .stat-item h4 {
+            color: var(--primary-text);
+            font-size: 3.5rem;
+            margin-bottom: 5px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+        
+        .stat-item p {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        /* Formulário de Contato */
+        .contact-section {
+            background-color: var(--alt-bg);
+            border-top: 1px solid var(--border-color);
+        }
+
+        .contact-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: var(--main-bg);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+            border: 1px solid var(--border-color);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--primary-text);
+            font-size: 0.9rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            background-color: #fff;
+            transition: border-color 0.3s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--gold);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            background-color: var(--primary-text);
+            color: var(--main-bg);
+            border: none;
+            padding: 15px 30px;
+            font-size: 1rem;
+            font-weight: 700;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background-color 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--gold);
+        }
+
+        /* Botão WhatsApp Flutuante */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--whatsapp);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            transition: transform 0.3s ease;
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-text);
+            color: #d1d5d8;
+            padding: 60px 10% 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.85rem;
+        }
+
+        /* Responsividade */
+        @media (max-width: 900px) {
+            .hero-content h1 { font-size: 2.5rem; }
+            .about { flex-direction: column; }
+            .network-stats { flex-direction: column; gap: 40px; }
+            .footer-grid { grid-template-columns: 1fr; }
+            nav ul { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Cabeçalho -->
+    <header>
+       <div class="logo-container">
+			<img src="Logo Prismas.png" alt="Logo Prismas Consulting Ltda" style="height: 130px; width: auto; mix-blend-mode: multiply;">
+		</div>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#abordagem">Nossa Abordagem</a></li>
+                <li><a href="#servicos">Especialidades</a></li>
+                <li><a href="#rede">Rede</a></li>
+                <li><a href="#contato" class="cta-btn">Falar com Consultor</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Seção Hero -->
+    <section id="inicio" class="hero">
+        <canvas id="dataNetwork"></canvas>
+        <div class="hero-content">
+            <h1>Estratégia, Operações e <span>Sistemas ERP</span></h1>
+            <p>Conectamos sua empresa a especialistas de alto nível para auditoria de processos, implantação de ERP e integração inteligente de dados de ponta a ponta.</p>
+            
+            <div class="hero-kpi-container">
+                <div class="hero-kpi">
+                    <span id="kpi-efficiency">0</span>
+                    <p>Foco em Governança</p>
+                </div>
+                <div class="hero-kpi">
+                    <span id="kpi-roi">0</span>
+                    <p>Agilidade na Entrega</p>
+                </div>
+            </div>
+
+            <a href="#servicos" class="cta-btn" style="padding: 15px 30px; font-size: 14px;">Conhecer Soluções</a>
+        </div>
+    </section>
+
+    <!-- Quem Somos -->
+    <section id="abordagem" class="about">
+        <div class="about-text">
+            <h2>Processos complexos exigem soluções direcionadas.</h2>
+            <br>
+            <p>A <strong>Prismas Consulting Ltda.</strong> atua no coração operacional das empresas, garantindo que os sistemas de gestão funcionem para o negócio, e não o contrário.</p>
+            <p>Nosso modelo é baseado na formação de <em>squads</em> (equipes) modulares e flexíveis. Compreendemos a dor da sua empresa e, por meio da nossa rede, acionamos especialistas altamente qualificados: desde auditores de sistemas e implantadores de ERP, até desenvolvedores focados em integrações (APIs) e Inteligência Artificial.</p>
+            <p>Dessa forma, entregamos escalabilidade e conhecimento técnico avançado, sem repassar os altos custos de estruturas engessadas para o seu projeto.</p>
+        </div>
+        <div class="about-visual">
+            <div class="chart-animation">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Áreas de Atuação (ATUALIZADA) -->
+    <section id="servicos" class="services">
+        <div class="section-title">
+            <h2>Nossas Especialidades</h2>
+            <p>Visão de negócio aliada à excelência técnica estrutural.</p>
+        </div>
+        
+        <div class="services-grid">
+            <div class="service-card" style="border: 2px solid var(--gold);">
+                <div class="service-icon"><i class="fa-solid fa-server"></i></div>
+                <h3>Sistemas ERP</h3>
+                <p><strong>Auditoria, implantação e customizações avançadas.</strong> Mapeamos seus processos e ajustamos o ERP para refletir a realidade operacional da sua empresa, otimizando módulos, eliminando gargalos e garantindo a aderência sistêmica.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon"><i class="fa-solid fa-code-merge"></i></div>
+                <h3>Integração de Sistemas & APIs</h3>
+                <p>Sistemas conversando entre si. Automatizamos rotinas desenvolvendo integrações robustas (APIs) entre seu ERP, bancos de dados e webservices corporativos externos (como consultas de dados cadastrais na Receita ou cotações em tempo real via Banco Central).</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon"><i class="fa-solid fa-chart-line"></i></div>
+                <h3>Business Intelligence</h3>
+                <p>Transformação de dados brutos do seu ERP em inteligência competitiva. Construção de dashboards interativos avançados utilizando ferramentas como Microsoft Power BI, permitindo monitoramento de KPIs vitais e tomada de decisão fundamentada.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon"><i class="fa-solid fa-microchip"></i></div>
+                <h3>IA & Dados Estruturados</h3>
+                <p>Aplicamos automação avançada no seu dia a dia. Utilizando tecnologias como Python, bancos de dados vetoriais e inteligência artificial para sistemas RAG, aceleramos processos de negócios, previsibilidade e a gestão do conhecimento corporativo.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rede de Especialistas -->
+    <section id="rede" class="network">
+        <div class="section-title">
+            <h2>Alocação Inteligente</h2>
+            <p style="max-width: 700px; margin: 0 auto;">Nós gerimos a estratégia e a qualidade; nossa rede de consultores parceiros executa a técnica com precisão.</p>
+        </div>
+        
+        <div class="network-stats">
+            <div class="stat-item">
+                <h4 class="counter" data-target="100">0</h4>
+                <p>Sob Demanda (%)</p>
+            </div>
+            <div class="stat-item">
+                <h4 class="counter" data-target="360">0</h4>
+                <p>Auditoria Global (Graus)</p>
+            </div>
+            <div class="stat-item">
+                <h4>ERP</h4>
+                <p>Expertise Focada</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Formulário de Contato -->
+    <section id="contato" class="contact-section">
+        <div class="section-title">
+            <h2>Fale com um Consultor</h2>
+            <p>Preencha o formulário abaixo e nossa equipe retornará o contato para entender seu projeto.</p>
+        </div>
+        <div class="contact-container">
+            <form action="#" method="POST">
+                <div class="form-group">
+                    <label for="nome">Nome Completo</label>
+                    <input type="text" id="nome" class="form-control" placeholder="Seu nome" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">E-mail Corporativo</label>
+                    <input type="email" id="email" class="form-control" placeholder="voce@suaempresa.com.br" required>
+                </div>
+                <div class="form-group">
+                    <label for="empresa">Empresa</label>
+                    <input type="text" id="empresa" class="form-control" placeholder="Nome da sua empresa">
+                </div>
+                <div class="form-group">
+                    <label for="mensagem">Como podemos ajudar?</label>
+                    <textarea id="mensagem" class="form-control" placeholder="Descreva brevemente sua necessidade ou projeto (ex: Implantação de ERP, Integração de API, Dashboards...)" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Enviar Mensagem</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer Escuro (Contraste) -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+				<div class="logo-container" style="margin-bottom: 20px; background-color: #fff; padding: 10px; border-radius: 8px; display: inline-block;">
+					<img src="Logo Prismas.png" alt="Logo Prismas Consulting Ltda" style="height: 100px; width: auto;">
+				</div>
+                <p>Especialistas em auditoria, implantação de ERP e integração de sistemas inteligentes.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Contato</h4>
+                <p>contato@prismasconsulting.com.br</p>
+                <p>www.prismasconsulting.com.br</p>
+            </div>
+            <div class="footer-col">
+                <h4>Áreas</h4>
+                <p>Auditoria e Implantação ERP</p>
+                <p>Integração de APIs</p>
+                <p>Business Intelligence</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Prismas Consulting Ltda. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Botão Flutuante do WhatsApp -->
+    <!-- Substitua o número (3198431150) pelo telefone real do comercial -->
+    <a href="https://wa.me/553198431150" target="_blank" class="whatsapp-btn" aria-label="Fale conosco pelo WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script>
+        const canvas = document.getElementById('dataNetwork');
+        const ctx = canvas.getContext('2d');
+        let width, height;
+        let particles = [];
+
+        function resize() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = document.querySelector('.hero').offsetHeight;
+        }
+        window.addEventListener('resize', resize);
+        resize();
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.vx = (Math.random() - 0.5) * 0.3;
+                this.vy = (Math.random() - 0.5) * 0.3;
+                this.radius = Math.random() * 1.5 + 1;
+            }
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                if (this.x < 0 || this.x > width) this.vx = -this.vx;
+                if (this.y < 0 || this.y > height) this.vy = -this.vy;
+            }
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = '#B89346'; 
+                ctx.fill();
+            }
+        }
+        
+        for (let i = 0; i < 50; i++) particles.push(new Particle());
+
+        function animateCanvas() {
+            ctx.clearRect(0, 0, width, height);
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+                particles[i].draw();
+                for (let j = i; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    
+                    if (distance < 150) {
+                        ctx.beginPath();
+                        ctx.strokeStyle = `rgba(184, 147, 70, ${0.35 - distance/400})`;
+                        ctx.lineWidth = 1.5;
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+            requestAnimationFrame(animateCanvas);
+        }
+        animateCanvas();
+
+        function animateCounter(id, target, duration, suffix = '') {
+            let start = 0;
+            const element = document.getElementById(id);
+            if(!element) return;
+            const increment = target / (duration / 16); 
+            const timer = setInterval(() => {
+                start += increment;
+                if (start >= target) {
+                    clearInterval(timer);
+                    element.innerText = target + suffix;
+                } else {
+                    element.innerText = Math.floor(start) + suffix;
+                }
+            }, 16);
+        }
+
+        setTimeout(() => {
+            animateCounter('kpi-efficiency', 100, 2000, '%');
+            animateCounter('kpi-roi', 100, 2000, '%');
+        }, 500);
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counters = entry.target.querySelectorAll('.counter');
+                    counters.forEach(counter => {
+                        const target = parseInt(counter.getAttribute('data-target'));
+                        let count = 0;
+                        const speed = target / 40;
+                        const updateCount = () => {
+                            count += speed;
+                            if (count < target) {
+                                counter.innerText = Math.ceil(count);
+                                requestAnimationFrame(updateCount);
+                            } else {
+                                counter.innerText = target;
+                            }
+                        };
+                        updateCount();
+                    });
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+        const networkSection = document.querySelector('.network');
+        if(networkSection) observer.observe(networkSection);
+    </script>
+</body>
+</html>
