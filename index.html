@@ -8,7 +8,7 @@
     <!-- Fontes do Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
     
     <!-- Biblioteca de Ícones Profissionais (FontAwesome) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -21,6 +21,7 @@
             --gold: #B89346; /* Dourado envelhecido da logo */
             --gold-hover: #9e7d3a; 
             --main-bg: #FCFAF5;
+            --header-bg:f5f6f1; /* Tom exato mapeado no Paint para fundir totalmente com a                				imagem */
             --alt-bg: #F4EFE6;
             --border-color: #E5DEC6;
             --whatsapp: #25D366; /* Verde Oficial do WhatsApp */
@@ -53,14 +54,14 @@
             transition: color 0.3s ease;
         }
 
-        /* Header e Navegação */
+        /* Header e Navegação Fundido */
         header {
-            background-color: var(--main-bg);
+            background-color: var(--header-bg);
             padding: 15px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.04);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.03);
             position: fixed;
             width: 100%;
             top: 0;
@@ -81,9 +82,10 @@
         }
 
         nav a {
-            font-size: 14px;
-            font-weight: 500;
+            font-size: 15px;
+            font-weight: 600; /* Menus mais encorpados */
             color: var(--primary-text);
+            letter-spacing: 0.3px;
         }
 
         nav a:hover {
@@ -500,8 +502,8 @@
     <!-- Cabeçalho -->
     <header>
        <div class="logo-container">
-			<img src="Logo Prismas.png" alt="Logo Prismas Consulting Ltda" style="height: 130px; width: auto; mix-blend-mode: multiply;">
-		</div>
+    <img src="Logo Prismas.png" alt="Logo Prismas Consulting Ltda" style="height: 120px; width: 		auto; mix-blend-mode: multiply; background: transparent;">
+	</div>
         <nav>
             <ul>
                 <li><a href="#inicio">Início</a></li>
