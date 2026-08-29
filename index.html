@@ -120,15 +120,15 @@
             color: var(--primary-text);
             cursor: pointer;
         }
-			@media (max-width: 900px) {
+		@media (max-width: 900px) {
             html {
-                scroll-padding-top: 100px; /* Garante o respiro exato no celular ao clicar no menu */
+                scroll-padding-top: 100px;
             }
             header {
-                height: 90px;
+                height: 100px;
             }
             .logo-container img {
-                height: 60px;
+                height: 75px; /* Aumenta o tamanho da logo no celular */
             }
             .menu-toggle {
                 display: block;
@@ -137,7 +137,7 @@
                 display: none;
                 flex-direction: column;
                 position: absolute;
-                top: 90px;
+                top: 100px;
                 left: 0;
                 width: 100%;
                 background-color: #E7E4D5;
@@ -145,7 +145,7 @@
                 box-shadow: 0 10px 20px rgba(0,0,0,0.1);
                 text-align: center;
                 gap: 20px;
-                border-top: 1px solid var(--border-color);
+                border-top: none; /* Remove totalmente aquela linha branca */
                 z-index: 2000;
             }
             nav ul.nav-list.active {
@@ -156,7 +156,6 @@
             .network-stats { flex-direction: column; gap: 40px; }
             .footer-grid { grid-template-columns: 1fr; }
         }
-
         /* Seções */
         section {
             padding: 100px 10%;
