@@ -490,18 +490,22 @@
         }
 
         /* Rodapé */
+        /* Rodapé de ponta a ponta sem vazamentos */
         footer {
             width: 100%;
             background-color: #212529;
             color: #E7E4D5;
             padding: 60px 0 20px 0;
             margin: 0;
+            overflow: hidden;
         }
 
         .footer-content {
+            width: 100%;
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
+            box-sizing: border-box;
         }
 
         .footer-grid {
@@ -509,19 +513,40 @@
             grid-template-columns: 1fr 1fr 1fr;
             gap: 40px;
             margin-bottom: 40px;
+            width: 100%;
         }
 
-        .footer-col h4 {
-            color: var(--gold);
-            margin-bottom: 20px;
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            font-size: 0.85rem;
-        }
+        /* Correção para telas pequenas (Celular) */
+        @media (max-width: 900px) {
+            .menu-toggle {
+                display: block;
+            }
+            nav ul.nav-list {
+                display: none;
+                flex-direction: column;
+                position: fixed; /* Fica fixo cobrindo a tela abaixo do header */
+                top: 130px;
+                left: 0;
+                width: 100%;
+                height: calc(100vh - 130px);
+                background-color: #E7E4D5;
+                padding: 40px 0;
+                box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+                text-align: center;
+                gap: 30px;
+                z-index: 999;
+                overflow-y: auto;
+            }
+            nav ul.nav-list.active {
+                display: flex;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            body {
+                overflow-x: hidden; /* Impede qualquer deslocamento lateral da tela */
+            }
     </style>
 </head>
 <body>
