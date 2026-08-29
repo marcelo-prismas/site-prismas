@@ -631,8 +631,8 @@
             <h2>Fale com um Consultor</h2>
             <p>Preencha o formulário abaixo e nossa equipe retornará o contato para entender seu projeto.</p>
         </div>
-        <div class="contact-container">
-            <form action="#" method="POST">
+      <div class="contact-container">
+            <form id="whatsappForm" onsubmit="enviarParaWhatsApp(event)">
                 <div class="form-group">
                     <label for="nome">Nome Completo</label>
                     <input type="text" id="nome" class="form-control" placeholder="Seu nome" required>
@@ -649,7 +649,7 @@
                     <label for="mensagem">Como podemos ajudar?</label>
                     <textarea id="mensagem" class="form-control" placeholder="Descreva brevemente sua necessidade ou projeto (ex: Implantação de ERP, Integração de API, Dashboards...)" required></textarea>
                 </div>
-                <button type="submit" class="submit-btn">Enviar Mensagem</button>
+                <button type="submit" class="submit-btn"><i class="fa-brands fa-whatsapp" style="margin-right: 8px;"></i> Enviar Mensagem via WhatsApp</button>
             </form>
         </div>
     </section>
@@ -685,7 +685,39 @@
     <a href="https://wa.me/5531984311150" target="_blank" class="whatsapp-btn" aria-label="Fale conosco pelo WhatsApp">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
+	const networkSection = document.querySelector('.network');
+        if(networkSection) observer.observe(networkSection);
 
+        // --- FUNÇÃO DE ENVIO PARA O WHATSAPP ---
+        function enviarParaWhatsApp(event) {
+            event.preventDefault(); // Evita o erro 405
+            
+            const nome = document.getElementById('nome').value;
+            const email = document.getElementById('email').value;
+            const empresa = document.getElementById('empresa').value;
+            const mensagem = document.getElementById('mensagem').value;
+            
+            const telefone = "5531984311150"; // Seu número configurado
+            
+            // Monta o texto formatado para o WhatsApp
+            let texto = `*Contato via Site - Prismas Consulting*\n\n`;
+            texto += `*Nome:* ${nome}\n`;
+            texto += `*E-mail:* ${email}\n`;
+            if(empresa) texto += `*Empresa:* ${empresa}\n`;
+            texto += `*Mensagem:* ${mensagem}`;
+            
+            const url = `https://wa.me/${telefone}?text=${encodeURIComponent(texto)}`;
+            
+            // Abre o WhatsApp em nova aba
+            window.open(url, '_blank');
+            
+            // Dá um feedback visual para o usuário e limpa o formulário
+            alert('Redirecionando para o WhatsApp com sua mensagem!');
+            document.getElementById('whatsappForm').reset();
+        }
+    </script>
+</body>
+</html>
     <!-- Scripts -->
     <script>
         const canvas = document.getElementById('dataNetwork');
