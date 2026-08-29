@@ -53,25 +53,30 @@
             color: inherit;
             transition: color 0.3s ease;
         }
-
-        /* Header e Navegação Fundido */
+/* Header e Navegação Fixos e Ajustados */
         header {
-            background-color: var(--header-bg);
-            padding: 15px 5%;
+            background-color: #E7E4D5; /* Cor exata mapeada para fundir com a logo */
+            padding: 10px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.03);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.04);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
+            height: 130px; /* Altura suficiente para acomodar a logo de 75px sem vazar */
         }
 
         .logo-container {
             display: flex;
             align-items: center;
             gap: 15px;
+        }
+
+        .logo-container img {
+            height: 90px; /* Altura ideal proporcional */
+            width: auto;
         }
        
         nav ul {
@@ -109,7 +114,7 @@
             color: var(--main-bg);
         }
 
-        /* Hero Section */
+      /* Hero Section ajustada para compensar a nova altura do header */
         .hero {
             position: relative;
             height: 100vh;
@@ -118,7 +123,7 @@
             align-items: center;
             padding: 0 10%;
             overflow: hidden;
-            margin-top: 70px;
+            margin-top: 130px; /* Garante que o conteúdo não fique sob o menu fixo */
         }
 
         #dataNetwork {
@@ -540,6 +545,8 @@
     <!-- Quem Somos -->
     <section id="abordagem" class="about">
         <div class="about-text">
+		 <br>
+		  <br>
             <h2>Processos complexos exigem soluções direcionadas.</h2>
             <br>
             <p>A <strong>Prismas Consulting Ltda.</strong> atua no coração operacional das empresas, garantindo que os sistemas de gestão funcionem para o negócio, e não o contrário.</p>
@@ -558,7 +565,9 @@
 
     <!-- Áreas de Atuação (ATUALIZADA) -->
     <section id="servicos" class="services">
+		<br>
         <div class="section-title">
+		   <br>
             <h2>Nossas Especialidades</h2>
             <p>Visão de negócio aliada à excelência técnica estrutural.</p>
         </div>
@@ -592,6 +601,8 @@
 
     <!-- Rede de Especialistas -->
     <section id="rede" class="network">
+		<br>
+		<br>
         <div class="section-title">
             <h2>Alocação Inteligente</h2>
             <p style="max-width: 700px; margin: 0 auto;">Nós gerimos a estratégia e a qualidade; nossa rede de consultores parceiros executa a técnica com precisão.</p>
@@ -615,6 +626,7 @@
 
     <!-- Formulário de Contato -->
     <section id="contato" class="contact-section">
+	<br>
         <div class="section-title">
             <h2>Fale com um Consultor</h2>
             <p>Preencha o formulário abaixo e nossa equipe retornará o contato para entender seu projeto.</p>
@@ -669,8 +681,8 @@
     </footer>
 
     <!-- Botão Flutuante do WhatsApp -->
-    <!-- Substitua o número (3198431150) pelo telefone real do comercial -->
-    <a href="https://wa.me/553198431150" target="_blank" class="whatsapp-btn" aria-label="Fale conosco pelo WhatsApp">
+    <!-- Substitua o número (31987721290) pelo telefone real do comercial -->
+    <a href="https://wa.me/5531987721290" target="_blank" class="whatsapp-btn" aria-label="Fale conosco pelo WhatsApp">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
