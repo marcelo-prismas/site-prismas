@@ -14,20 +14,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* Paleta de Cores Atualizada - Baseada na Logo */
         :root {
-            --primary-text: #2A3338; /* Cinza chumbo escuro da logo */
+            --primary-text: #2A3338;
             --secondary-text: #5A6368;
-            --gold: #B89346; /* Dourado envelhecido da logo */
+            --gold: #B89346;
             --gold-hover: #9e7d3a; 
             --main-bg: #FCFAF5;
-            --header-bg:f5f6f1; /* Tom exato mapeado no Paint para fundir totalmente com a                				imagem */
             --alt-bg: #F4EFE6;
             --border-color: #E5DEC6;
-            --whatsapp: #25D366; /* Verde Oficial do WhatsApp */
+            --whatsapp: #25D366;
         }
 
-        /* Reset Global */
         * {
             margin: 0;
             padding: 0;
@@ -53,9 +50,10 @@
             color: inherit;
             transition: color 0.3s ease;
         }
-/* Header e Navegação Fixos e Ajustados */
+
+        /* Header Fixo */
         header {
-            background-color: #E7E4D5; /* Cor exata mapeada para fundir com a logo */
+            background-color: #E7E4D5;
             padding: 10px 5%;
             display: flex;
             justify-content: space-between;
@@ -65,7 +63,7 @@
             width: 100%;
             top: 0;
             z-index: 1000;
-            height: 130px; /* Altura suficiente para acomodar a logo de 75px sem vazar */
+            height: 130px;
         }
 
         .logo-container {
@@ -74,9 +72,12 @@
             gap: 15px;
         }
 
+        /* Remove o fundo branco da logo e funde com o cabeçalho */
         .logo-container img {
-            height: 90px; /* Altura ideal proporcional */
+            height: 90px;
             width: auto;
+            mix-blend-mode: multiply;
+            background: transparent;
         }
        
         nav ul {
@@ -88,7 +89,7 @@
 
         nav a {
             font-size: 15px;
-            font-weight: 600; /* Menus mais encorpados */
+            font-weight: 600;
             color: var(--primary-text);
             letter-spacing: 0.3px;
         }
@@ -114,7 +115,48 @@
             color: var(--main-bg);
         }
 
-      /* Hero Section ajustada para compensar a nova altura do header */
+        .menu-toggle {
+            display: none;
+            font-size: 28px;
+            color: var(--primary-text);
+            cursor: pointer;
+        }
+
+        @media (max-width: 900px) {
+            .menu-toggle {
+                display: block;
+            }
+            nav ul.nav-list {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 130px;
+                left: 0;
+                width: 100%;
+                background-color: #E7E4D5;
+                padding: 20px 0;
+                box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+                text-align: center;
+                gap: 20px;
+            }
+            nav ul.nav-list.active {
+                display: flex;
+            }
+            .hero-content h1 { font-size: 2.5rem; }
+            .about { flex-direction: column; }
+            .network-stats { flex-direction: column; gap: 40px; }
+            .footer-grid { grid-template-columns: 1fr; }
+        }
+
+        /* Seções com espaçamento correto para não ficarem sob o menu fixo */
+        section {
+            padding: 100px 10%;
+            position: relative;
+            z-index: 2; 
+            background-color: var(--main-bg);
+            padding-top: 150px; /* Compensa o menu fixo de 130px */
+        }
+
         .hero {
             position: relative;
             height: 100vh;
@@ -123,7 +165,8 @@
             align-items: center;
             padding: 0 10%;
             overflow: hidden;
-            margin-top: 130px; /* Garante que o conteúdo não fique sob o menu fixo */
+            margin-top: 130px;
+            padding-top: 0;
         }
 
         #dataNetwork {
@@ -158,7 +201,6 @@
             font-size: 1.2rem;
             margin-bottom: 40px;
             max-width: 650px;
-            font-weight: 400;
         }
 
         .hero-kpi-container {
@@ -166,15 +208,10 @@
             gap: 40px;
             margin-bottom: 40px;
             border-left: 4px solid var(--gold);
-            padding-left: 20px;
             background: rgba(252, 250, 245, 0.85);
             padding: 15px 20px;
             border-radius: 0 8px 8px 0;
             backdrop-filter: blur(5px);
-        }
-        
-        .hero-kpi {
-            color: var(--primary-text);
         }
         
         .hero-kpi span {
@@ -192,14 +229,6 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             font-weight: 600;
-        }
-
-        /* Seções Gerais */
-        section {
-            padding: 100px 10%;
-            position: relative;
-            z-index: 2; 
-            background-color: var(--main-bg);
         }
 
         .section-title {
@@ -230,6 +259,7 @@
             display: flex;
             align-items: center;
             gap: 60px;
+            background-color: var(--main-bg);
         }
 
         .about-text {
@@ -239,7 +269,6 @@
         .about-text h3 {
             font-size: 2rem;
             margin-bottom: 20px;
-            color: var(--primary-text);
         }
 
         .about-text p {
@@ -270,18 +299,12 @@
             width: 45px;
             border-radius: 4px 4px 0 0;
             animation: growBar 2.5s ease-out infinite alternate;
-            position: relative;
         }
 
         .bar:nth-child(1) { height: 60px; animation-delay: 0s; background-color: rgba(42, 51, 56, 0.3); }
         .bar:nth-child(2) { height: 110px; animation-delay: 0.2s; background-color: rgba(42, 51, 56, 0.6); }
         .bar:nth-child(3) { height: 150px; animation-delay: 0.4s; background-color: rgba(42, 51, 56, 0.9); }
-        .bar:nth-child(4) { 
-            height: 190px; 
-            animation-delay: 0.6s; 
-            background-color: var(--gold); 
-            box-shadow: 0 0 25px rgba(184, 147, 70, 0.4); 
-        }
+        .bar:nth-child(4) { height: 190px; animation-delay: 0.6s; background-color: var(--gold); box-shadow: 0 0 25px rgba(184, 147, 70, 0.4); }
 
         @keyframes growBar {
             0% { transform: scaleY(0.5); transform-origin: bottom; }
@@ -346,7 +369,6 @@
         /* Rede de Especialistas */
         .network {
             background-color: var(--main-bg);
-            color: var(--secondary-text);
             text-align: center;
             border-top: 1px solid var(--border-color);
         }
@@ -466,11 +488,19 @@
             color: white;
         }
 
-        /* Footer */
+        /* Rodapé */
         footer {
-            background-color: var(--primary-text);
-            color: #d1d5d8;
-            padding: 60px 10% 20px;
+            width: 100%;
+            background-color: #212529;
+            color: #E7E4D5;
+            padding: 60px 0 20px 0;
+            margin: 0;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
         .footer-grid {
@@ -491,15 +521,6 @@
             border-top: 1px solid rgba(255,255,255,0.1);
             font-size: 0.85rem;
         }
-
-        /* Responsividade */
-        @media (max-width: 900px) {
-            .hero-content h1 { font-size: 2.5rem; }
-            .about { flex-direction: column; }
-            .network-stats { flex-direction: column; gap: 40px; }
-            .footer-grid { grid-template-columns: 1fr; }
-            nav ul { display: none; }
-        }
     </style>
 </head>
 <body>
@@ -507,10 +528,13 @@
     <!-- Cabeçalho -->
     <header>
        <div class="logo-container">
-    <img src="Logo Prismas.png" alt="Logo Prismas Consulting Ltda" style="height: 120px; width: 		auto; mix-blend-mode: multiply; background: transparent;">
-	</div>
+            <img src="Logo Prismas.png" alt="Logo Prismas Consulting Ltda">
+	   </div>
+       <div class="menu-toggle" id="mobile-menu">
+           <i class="fa-solid fa-bars"></i>
+       </div>
         <nav>
-            <ul>
+            <ul class="nav-list">
                 <li><a href="#inicio">Início</a></li>
                 <li><a href="#abordagem">Nossa Abordagem</a></li>
                 <li><a href="#servicos">Especialidades</a></li>
@@ -545,8 +569,6 @@
     <!-- Quem Somos -->
     <section id="abordagem" class="about">
         <div class="about-text">
-		 <br>
-		  <br>
             <h2>Processos complexos exigem soluções direcionadas.</h2>
             <br>
             <p>A <strong>Prismas Consulting Ltda.</strong> atua no coração operacional das empresas, garantindo que os sistemas de gestão funcionem para o negócio, e não o contrário.</p>
@@ -563,11 +585,9 @@
         </div>
     </section>
 
-    <!-- Áreas de Atuação (ATUALIZADA) -->
+    <!-- Áreas de Atuação -->
     <section id="servicos" class="services">
-		<br>
         <div class="section-title">
-		   <br>
             <h2>Nossas Especialidades</h2>
             <p>Visão de negócio aliada à excelência técnica estrutural.</p>
         </div>
@@ -601,8 +621,6 @@
 
     <!-- Rede de Especialistas -->
     <section id="rede" class="network">
-		<br>
-		<br>
         <div class="section-title">
             <h2>Alocação Inteligente</h2>
             <p style="max-width: 700px; margin: 0 auto;">Nós gerimos a estratégia e a qualidade; nossa rede de consultores parceiros executa a técnica com precisão.</p>
@@ -626,99 +644,67 @@
 
     <!-- Formulário de Contato -->
     <section id="contato" class="contact-section">
-	<br>
         <div class="section-title">
             <h2>Fale com um Consultor</h2>
             <p>Preencha o formulário abaixo e nossa equipe retornará o contato para entender seu projeto.</p>
         </div>
-      <div class="contact-container">
-            <form id="whatsappForm" onsubmit="enviarParaWhatsApp(event)">
+        <div class="contact-container">
+            <form action="https://formspree.io/f/xjyvkaze" method="POST">
                 <div class="form-group">
                     <label for="nome">Nome Completo</label>
-                    <input type="text" id="nome" class="form-control" placeholder="Seu nome" required>
+                    <input type="text" id="nome" name="nome" class="form-control" placeholder="Seu nome" required>
                 </div>
                 <div class="form-group">
                     <label for="email">E-mail Corporativo</label>
-                    <input type="email" id="email" class="form-control" placeholder="voce@suaempresa.com.br" required>
+                    <input type="email" id="email" name="email" class="form-control" placeholder="voce@suaempresa.com.br" required>
                 </div>
                 <div class="form-group">
                     <label for="empresa">Empresa</label>
-                    <input type="text" id="empresa" class="form-control" placeholder="Nome da sua empresa">
+                    <input type="text" id="empresa" name="empresa" class="form-control" placeholder="Nome da sua empresa">
                 </div>
                 <div class="form-group">
                     <label for="mensagem">Como podemos ajudar?</label>
-                    <textarea id="mensagem" class="form-control" placeholder="Descreva brevemente sua necessidade ou projeto (ex: Implantação de ERP, Integração de API, Dashboards...)" required></textarea>
+                    <textarea id="mensagem" name="mensagem" class="form-control" placeholder="Descreva brevemente sua necessidade ou projeto (ex: Implantação de ERP, Integração de API, Dashboards...)" required></textarea>
                 </div>
-                <button type="submit" class="submit-btn"><i class="fa-brands fa-whatsapp" style="margin-right: 8px;"></i> Enviar Mensagem via WhatsApp</button>
+                <button type="submit" class="submit-btn">Enviar Mensagem</button>
             </form>
         </div>
     </section>
 
-    <!-- Footer Escuro (Contraste) -->
+    <!-- Rodapé -->
     <footer>
-        <div class="footer-grid">
-            <div class="footer-col">
-				<div class="logo-container" style="margin-bottom: 20px; background-color: #fff; padding: 10px; border-radius: 8px; display: inline-block;">
-					<img src="Logo Prismas.png" alt="Logo Prismas Consulting Ltda" style="height: 100px; width: auto;">
-				</div>
-                <p>Especialistas em auditoria, implantação de ERP e integração de sistemas inteligentes.</p>
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo-container" style="margin-bottom: 20px; background-color: #fff; padding: 10px; border-radius: 8px; display: inline-block;">
+                        <img src="Logo Prismas.png" alt="Logo Prismas Consulting Ltda" style="height: 60px; width: auto;">
+                    </div>
+                    <p>Especialistas em auditoria, implantação de ERP e integração de sistemas inteligentes.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Contato</h4>
+                    <p>contato@prismasconsulting.com.br</p>
+                    <p>www.prismasconsulting.com.br</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Áreas</h4>
+                    <p>Auditoria e Implantação ERP</p>
+                    <p>Integração de APIs</p>
+                    <p>Business Intelligence</p>
+                </div>
             </div>
-            <div class="footer-col">
-                <h4>Contato</h4>
-                <p>contato@prismasconsulting.com.br</p>
-                <p>www.prismasconsulting.com.br</p>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Prismas Consulting Ltda. Todos os direitos reservados.</p>
             </div>
-            <div class="footer-col">
-                <h4>Áreas</h4>
-                <p>Auditoria e Implantação ERP</p>
-                <p>Integração de APIs</p>
-                <p>Business Intelligence</p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 Prismas Consulting Ltda. Todos os direitos reservados.</p>
         </div>
     </footer>
 
     <!-- Botão Flutuante do WhatsApp -->
-    <!-- Substitua o número (31984311150) pelo telefone real do comercial -->
     <a href="https://wa.me/5531984311150" target="_blank" class="whatsapp-btn" aria-label="Fale conosco pelo WhatsApp">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
-	const networkSection = document.querySelector('.network');
-        if(networkSection) observer.observe(networkSection);
 
-        // --- FUNÇÃO DE ENVIO PARA O WHATSAPP ---
-        function enviarParaWhatsApp(event) {
-            event.preventDefault(); // Evita o erro 405
-            
-            const nome = document.getElementById('nome').value;
-            const email = document.getElementById('email').value;
-            const empresa = document.getElementById('empresa').value;
-            const mensagem = document.getElementById('mensagem').value;
-            
-            const telefone = "5531984311150"; // Seu número configurado
-            
-            // Monta o texto formatado para o WhatsApp
-            let texto = `*Contato via Site - Prismas Consulting*\n\n`;
-            texto += `*Nome:* ${nome}\n`;
-            texto += `*E-mail:* ${email}\n`;
-            if(empresa) texto += `*Empresa:* ${empresa}\n`;
-            texto += `*Mensagem:* ${mensagem}`;
-            
-            const url = `https://wa.me/${telefone}?text=${encodeURIComponent(texto)}`;
-            
-            // Abre o WhatsApp em nova aba
-            window.open(url, '_blank');
-            
-            // Dá um feedback visual para o usuário e limpa o formulário
-            alert('Redirecionando para o WhatsApp com sua mensagem!');
-            document.getElementById('whatsappForm').reset();
-        }
-    </script>
-</body>
-</html>
-    <!-- Scripts -->
+    <!-- Scripts da Página -->
     <script>
         const canvas = document.getElementById('dataNetwork');
         const ctx = canvas.getContext('2d');
@@ -824,8 +810,25 @@
                 }
             });
         }, { threshold: 0.5 });
+        
         const networkSection = document.querySelector('.network');
         if(networkSection) observer.observe(networkSection);
+
+        // Script do Menu Mobile
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navList = document.querySelector('.nav-list');
+
+        if(mobileMenu && navList) {
+            mobileMenu.addEventListener('click', () => {
+                navList.classList.toggle('active');
+            });
+
+            document.querySelectorAll('.nav-list a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navList.classList.remove('active');
+                });
+            });
+        }
     </script>
 </body>
 </html>
