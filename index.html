@@ -72,7 +72,6 @@
             gap: 15px;
         }
 
-        /* Remove o fundo branco da logo e funde com o cabeçalho */
         .logo-container img {
             height: 90px;
             width: auto;
@@ -115,9 +114,10 @@
             color: var(--main-bg);
         }
 
+        /* Botão do Menu Mobile (Hambúrguer) */
         .menu-toggle {
             display: none;
-            font-size: 28px;
+            font-size: 32px;
             color: var(--primary-text);
             cursor: pointer;
         }
@@ -134,27 +134,28 @@
                 left: 0;
                 width: 100%;
                 background-color: #E7E4D5;
-                padding: 20px 0;
-                box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+                padding: 25px 0;
+                box-shadow: 0 10px 15px rgba(0,0,0,0.08);
                 text-align: center;
                 gap: 20px;
+                border-top: 1px solid var(--border-color);
             }
             nav ul.nav-list.active {
                 display: flex;
             }
-            .hero-content h1 { font-size: 2.5rem; }
+            .hero-content h1 { font-size: 2.3rem; }
             .about { flex-direction: column; }
             .network-stats { flex-direction: column; gap: 40px; }
             .footer-grid { grid-template-columns: 1fr; }
         }
 
-        /* Seções com espaçamento correto para não ficarem sob o menu fixo */
+        /* Seções */
         section {
-            padding: 100px 10%;
+            padding: 80px 10%;
             position: relative;
             z-index: 2; 
             background-color: var(--main-bg);
-            padding-top: 150px; /* Compensa o menu fixo de 130px */
+            padding-top: 150px;
         }
 
         .hero {
@@ -464,7 +465,7 @@
             background-color: var(--gold);
         }
 
-        /* Botão WhatsApp Flutuante */
+        /* Botão WhatsApp Flutuante com z-index alto para nunca sumir */
         .whatsapp-btn {
             position: fixed;
             bottom: 30px;
@@ -479,7 +480,7 @@
             justify-content: center;
             font-size: 32px;
             box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
-            z-index: 1000;
+            z-index: 99999;
             transition: transform 0.3s ease;
         }
 
@@ -679,7 +680,7 @@
                     <div class="logo-container" style="margin-bottom: 20px; background-color: #fff; padding: 10px; border-radius: 8px; display: inline-block;">
                         <img src="Logo Prismas.png" alt="Logo Prismas Consulting Ltda" style="height: 60px; width: auto;">
                     </div>
-                    <p>Especialistas em auditoria, implantação de ERP e integração de sistemas inteligentes.</p>
+                    <p>Especialistas em auditoria, implantação de ERP e integration de sistemas inteligentes.</p>
                 </div>
                 <div class="footer-col">
                     <h4>Contato</h4>
@@ -814,7 +815,7 @@
         const networkSection = document.querySelector('.network');
         if(networkSection) observer.observe(networkSection);
 
-        // Script do Menu Mobile
+        // Script do Menu Mobile (Fecha automaticamente ao clicar em qualquer link)
         const mobileMenu = document.getElementById('mobile-menu');
         const navList = document.querySelector('.nav-list');
 
