@@ -73,7 +73,7 @@
         }
 
         .logo-container img {
-            height: 90px;
+            height: 95px;
             width: auto;
             mix-blend-mode: multiply;
             background: transparent;
@@ -114,15 +114,20 @@
             color: var(--main-bg);
         }
 
-        /* Botão do Menu Mobile (Hambúrguer) */
         .menu-toggle {
             display: none;
-            font-size: 32px;
+            font-size: 28px;
             color: var(--primary-text);
             cursor: pointer;
         }
 
         @media (max-width: 900px) {
+            header {
+                height: 90px;
+            }
+            .logo-container img {
+                height: 60px;
+            }
             .menu-toggle {
                 display: block;
             }
@@ -130,15 +135,16 @@
                 display: none;
                 flex-direction: column;
                 position: absolute;
-                top: 130px;
+                top: 90px;
                 left: 0;
                 width: 100%;
                 background-color: #E7E4D5;
                 padding: 25px 0;
-                box-shadow: 0 10px 15px rgba(0,0,0,0.08);
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
                 text-align: center;
                 gap: 20px;
                 border-top: 1px solid var(--border-color);
+                z-index: 2000;
             }
             nav ul.nav-list.active {
                 display: flex;
@@ -151,7 +157,7 @@
 
         /* Seções */
         section {
-            padding: 80px 10%;
+            padding: 100px 10%;
             position: relative;
             z-index: 2; 
             background-color: var(--main-bg);
@@ -465,7 +471,7 @@
             background-color: var(--gold);
         }
 
-        /* Botão WhatsApp Flutuante com z-index alto para nunca sumir */
+        /* Botão WhatsApp Flutuante */
         .whatsapp-btn {
             position: fixed;
             bottom: 30px;
@@ -489,8 +495,7 @@
             color: white;
         }
 
-        /* Rodapé */
-        /* Rodapé de ponta a ponta sem vazamentos */
+        /* Rodapé de ponta a ponta */
         footer {
             width: 100%;
             background-color: #212529;
@@ -516,37 +521,17 @@
             width: 100%;
         }
 
-        /* Correção para telas pequenas (Celular) */
-        @media (max-width: 900px) {
-            .menu-toggle {
-                display: block;
-            }
-            nav ul.nav-list {
-                display: none;
-                flex-direction: column;
-                position: fixed; /* Fica fixo cobrindo a tela abaixo do header */
-                top: 130px;
-                left: 0;
-                width: 100%;
-                height: calc(100vh - 130px);
-                background-color: #E7E4D5;
-                padding: 40px 0;
-                box-shadow: 0 10px 15px rgba(0,0,0,0.1);
-                text-align: center;
-                gap: 30px;
-                z-index: 999;
-                overflow-y: auto;
-            }
-            nav ul.nav-list.active {
-                display: flex;
-            }
-            .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-            body {
-                overflow-x: hidden; /* Impede qualquer deslocamento lateral da tela */
-            }
+        .footer-col h4 {
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.85rem;
+        }
     </style>
 </head>
 <body>
@@ -703,9 +688,9 @@
             <div class="footer-grid">
                 <div class="footer-col">
                     <div class="logo-container" style="margin-bottom: 20px; background-color: #fff; padding: 10px; border-radius: 8px; display: inline-block;">
-                        <img src="Logo Prismas.png" alt="Logo Prismas Consulting Ltda" style="height: 60px; width: auto;">
+                        <img src="Logo Prismas.png" alt="Logo Prismas Consulting Ltda" style="height: 50px; width: auto;">
                     </div>
-                    <p>Especialistas em auditoria, implantação de ERP e integration de sistemas inteligentes.</p>
+                    <p>Especialistas em auditoria, implantação de ERP e integração de sistemas inteligentes.</p>
                 </div>
                 <div class="footer-col">
                     <h4>Contato</h4>
@@ -840,7 +825,7 @@
         const networkSection = document.querySelector('.network');
         if(networkSection) observer.observe(networkSection);
 
-        // Script do Menu Mobile (Fecha automaticamente ao clicar em qualquer link)
+        // Script do Menu Mobile
         const mobileMenu = document.getElementById('mobile-menu');
         const navList = document.querySelector('.nav-list');
 
