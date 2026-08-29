@@ -120,8 +120,10 @@
             color: var(--primary-text);
             cursor: pointer;
         }
-
-        @media (max-width: 900px) {
+			@media (max-width: 900px) {
+            html {
+                scroll-padding-top: 100px; /* Garante o respiro exato no celular ao clicar no menu */
+            }
             header {
                 height: 90px;
             }
