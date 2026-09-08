@@ -1,934 +1,432 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Primary Key Consultoria | Reforma Tributária, ERP e Inteligência de Dados</title>
-    
-    <!-- Meta Tags para SEO e Redes Sociais (Open Graph) -->
-    <meta name="description" content="Especialistas em adequação à Reforma Tributária, auditoria de ERP, integração de APIs e Inteligência de Dados para empresas.">
-    <meta property="og:title" content="Primary Key Consultoria | Reforma Tributária, ERP e Inteligência de Dados">
-    <meta property="og:description" content="Conectamos sua empresa a especialistas para superar os desafios da Reforma Tributária e extrair o máximo do seu ERP.">
-    <meta property="og:image" content="Logo_PK.png">
-    <meta property="og:type" content="website">
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="Logo_PK.png">
-    
-    <!-- Fontes do Google -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Biblioteca de Ícones Profissionais (FontAwesome) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <style>
-        :root {
-            --primary-text: #2A3338;
-            --secondary-text: #5A6368;
-            --gold: #B89346;
-            --gold-hover: #9e7d3a; 
-            --main-bg: #FCFAF5;
-            --alt-bg: #F4EFE6;
-            --border-color: #E5DEC6;
-            --whatsapp: #25D366;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Montserrat', sans-serif;
-            color: var(--secondary-text);
-            background-color: var(--main-bg);
-            line-height: 1.7;
-            overflow-x: hidden;
-        }
-
-        h1, h2, h3, h4 {
-            font-family: 'Playfair Display', serif;
-            color: var(--primary-text);
-            font-weight: 600;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-            transition: color 0.3s ease;
-        }
-
-        /* Header Fixo */
-        header {
-            background-color: #E7E4D5;
-            padding: 10px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.04);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            height: 130px;
-        }
-
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .logo-container img {
-            height: 95px;
-            width: auto;
-            mix-blend-mode: multiply;
-            background: transparent;
-        }
-       
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 30px;
-            align-items: center;
-        }
-
-        nav a {
-            font-size: 15px;
-            font-weight: 600;
-            color: var(--primary-text);
-            letter-spacing: 0.3px;
-        }
-
-        nav a:hover {
-            color: var(--gold);
-        }
-
-        .cta-btn {
-            background-color: var(--gold);
-            color: var(--main-bg);
-            padding: 10px 24px;
-            border-radius: 4px;
-            font-weight: 700;
-            text-transform: uppercase;
-            font-size: 12px;
-            letter-spacing: 1px;
-            transition: all 0.3s;
-        }
-
-        .cta-btn:hover {
-            background-color: var(--primary-text);
-            color: var(--main-bg);
-        }
-
-        .menu-toggle {
-            display: none;
-            font-size: 28px;
-            color: var(--primary-text);
-            cursor: pointer;
-        }
-
-        @media (max-width: 900px) {
-            html {
-                scroll-padding-top: 100px;
-            }
-            header {
-                height: 100px;
-            }
-            .logo-container img {
-                height: 75px;
-            }
-            .menu-toggle {
-                display: block;
-            }
-            nav ul.nav-list {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 100px;
-                left: 0;
-                width: 100%;
-                background-color: #E7E4D5;
-                padding: 25px 0;
-                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-                text-align: center;
-                gap: 20px;
-                border-top: none;
-                z-index: 2000;
-            }
-            nav ul.nav-list.active {
-                display: flex;
-            }
-            .hero-content h1 { font-size: 2.1rem; }
-            .about { flex-direction: column; }
-            .network-stats { flex-direction: column; gap: 40px; }
-            .footer-grid { grid-template-columns: 1fr; }
-            .method-grid { grid-template-columns: 1fr !important; }
-        }
-
-        /* Seções */
-        section {
-            padding: 100px 10%;
-            position: relative;
-            z-index: 2; 
-            background-color: var(--main-bg);
-            padding-top: 150px;
-        }
-
-        .hero {
-            position: relative;
-            height: 100vh;
-            background: linear-gradient(135deg, var(--main-bg) 0%, var(--alt-bg) 100%);
-            display: flex;
-            align-items: center;
-            padding: 0 10%;
-            overflow: hidden;
-            margin-top: 130px;
-            padding-top: 80px; /* <--- Ajustado para afastar o conteúdo perfeitamente do header fixo */
-        }
-
-        #dataNetwork {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1; 
-            pointer-events: none; 
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 10;
-            max-width: 850px;
-        }
-
-        .hero-badge {
-            display: inline-block;
-            background-color: rgba(184, 147, 70, 0.15);
-            color: var(--gold);
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 20px;
-            border: 1px solid var(--gold);
-        }
-
-        .hero-content h1 {
-            color: var(--primary-text);
-            font-size: 3.2rem;
-            line-height: 1.2;
-            margin-bottom: 20px;
-        }
-
-        .hero-content h1 span {
-            color: var(--gold);
-        }
-
-        .hero-content p {
-            color: var(--secondary-text);
-            font-size: 1.15rem;
-            margin-bottom: 30px;
-            max-width: 700px;
-        }
-
-        .hero-kpi-container {
-            display: flex;
-            gap: 40px;
-            margin-bottom: 40px;
-            border-left: 4px solid var(--gold);
-            background: rgba(252, 250, 245, 0.85);
-            padding: 15px 20px;
-            border-radius: 0 8px 8px 0;
-            backdrop-filter: blur(5px);
-        }
-        
-        .hero-kpi span {
-            display: block;
-            font-family: 'Playfair Display', serif;
-            font-size: 2.2rem;
-            color: var(--gold);
-            font-weight: 700;
-            line-height: 1.1;
-        }
-        
-        .hero-kpi p {
-            font-size: 0.85rem;
-            margin: 0;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 600;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .section-title h2 {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-title h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 3px;
-            background-color: var(--gold);
-        }
-
-        /* Sobre e Abordagem */
-        .about {
-            display: flex;
-            align-items: center;
-            gap: 60px;
-            background-color: var(--main-bg);
-        }
-
-        .about-text {
-            flex: 1;
-        }
-
-        .about-text h3 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-        }
-
-        .about-text p {
-            margin-bottom: 20px;
-            font-size: 1.05rem;
-        }
-
-        .about-visual {
-            flex: 1;
-            position: relative;
-            height: 400px;
-            background: var(--alt-bg);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid var(--border-color);
-        }
-
-        .chart-animation {
-            display: flex;
-            align-items: flex-end;
-            gap: 20px;
-            height: 200px;
-        }
-        
-        .bar {
-            width: 45px;
-            border-radius: 4px 4px 0 0;
-            animation: growBar 2.5s ease-out infinite alternate;
-        }
-
-        .bar:nth-child(1) { height: 60px; animation-delay: 0s; background-color: rgba(42, 51, 56, 0.3); }
-        .bar:nth-child(2) { height: 110px; animation-delay: 0.2s; background-color: rgba(42, 51, 56, 0.6); }
-        .bar:nth-child(3) { height: 150px; animation-delay: 0.4s; background-color: rgba(42, 51, 56, 0.9); }
-        .bar:nth-child(4) { height: 190px; animation-delay: 0.6s; background-color: var(--gold); box-shadow: 0 0 25px rgba(184, 147, 70, 0.4); }
-
-        @keyframes growBar {
-            0% { transform: scaleY(0.5); transform-origin: bottom; }
-            100% { transform: scaleY(1); transform-origin: bottom; }
-        }
-
-        /* Metodologia / Passo a Passo */
-        .method {
-            background-color: var(--alt-bg);
-        }
-
-        .method-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-        }
-
-        .method-card {
-            background: var(--main-bg);
-            padding: 40px 30px;
-            border-radius: 8px;
-            border: 1px solid var(--border-color);
-            position: relative;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
-        }
-
-        .method-number {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            color: var(--gold);
-            font-weight: 700;
-            margin-bottom: 15px;
-            display: block;
-        }
-
-        .method-card h3 {
-            margin-bottom: 15px;
-            font-size: 1.25rem;
-        }
-
-        /* Áreas de Atuação */
-        .services {
-            background-color: var(--main-bg);
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-
-        .service-card {
-            background: var(--alt-bg);
-            padding: 45px 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 25px rgba(0,0,0,0.03);
-            border: 1px solid var(--border-color);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background-color: var(--gold);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.3s ease;
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.06);
-        }
-
-        .service-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .service-icon {
-            font-size: 2.8rem;
-            margin-bottom: 25px;
-            color: var(--gold);
-        }
-
-        .service-card h3 {
-            margin-bottom: 15px;
-            font-size: 1.3rem;
-        }
-
-        /* Rede de Especialistas */
-        .network {
-            background-color: var(--alt-bg);
-            text-align: center;
-            border-top: 1px solid var(--border-color);
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .network-stats {
-            display: flex;
-            justify-content: center;
-            gap: 80px;
-            margin-top: 50px;
-        }
-
-        .stat-item h4 {
-            color: var(--primary-text);
-            font-size: 3.5rem;
-            margin-bottom: 5px;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-        }
-        
-        .stat-item p {
-            font-size: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--gold);
-            font-weight: 600;
-        }
-
-        /* Formulário de Contato */
-        .contact-section {
-            background-color: var(--main-bg);
-        }
-
-        .contact-container {
-            max-width: 700px;
-            margin: 0 auto;
-            background: var(--alt-bg);
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
-            border: 1px solid var(--border-color);
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: var(--primary-text);
-            font-size: 0.9rem;
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid var(--border-color);
-            border-radius: 4px;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1rem;
-            background-color: #fff;
-            transition: border-color 0.3s;
-        }
-
-        .form-control:focus {
-            outline: none;
-            border-color: var(--gold);
-        }
-
-        textarea.form-control {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        .submit-btn {
-            background-color: var(--primary-text);
-            color: var(--main-bg);
-            border: none;
-            padding: 15px 30px;
-            font-size: 1rem;
-            font-weight: 700;
-            border-radius: 4px;
-            cursor: pointer;
-            width: 100%;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: background-color 0.3s;
-        }
-
-        .submit-btn:hover {
-            background-color: var(--gold);
-        }
-
-        /* Botão WhatsApp Flutuante */
-        .whatsapp-btn {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background-color: var(--whatsapp);
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 32px;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
-            z-index: 99999;
-            transition: transform 0.3s ease;
-        }
-
-        .whatsapp-btn:hover {
-            transform: scale(1.1);
-            color: white;
-        }
-
-        /* Rodapé de ponta a ponta */
-        footer {
-            width: 100%;
-            background-color: #212529;
-            color: #E7E4D5;
-            padding: 60px 0 20px 0;
-            margin: 0;
-            overflow: hidden;
-        }
-
-        .footer-content {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            box-sizing: border-box;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 40px;
-            margin-bottom: 40px;
-            width: 100%;
-        }
-
-        .footer-col h4 {
-            color: var(--gold);
-            margin-bottom: 20px;
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            font-size: 0.85rem;
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d1922">
+  <meta name="description" content="Consultoria especializada em implantação, otimização e sustentação de ERP, integração de sistemas, processos e inteligência de dados.">
+  <title>Primary Key Consultoria | Implantação e Otimização de ERP</title>
+  <link rel="icon" href="primary-key-logo.png" type="image/png">
+  <style>
+    :root {
+      --ink: #10202b;
+      --ink-2: #1f3442;
+      --muted: #5e6e78;
+      --paper: #f7f8f6;
+      --white: #fff;
+      --navy: #0d1922;
+      --navy-2: #142733;
+      --gold: #c7a455;
+      --gold-2: #e0c779;
+      --line: #dce2e4;
+      --success: #1a8f5c;
+      --shadow: 0 24px 70px rgba(11, 27, 38, .11);
+      --radius: 24px;
+      --max: 1180px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 92px; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 1rem;
+      line-height: 1.65;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+    }
+    img, svg { display: block; max-width: 100%; }
+    button, input, textarea { font: inherit; }
+    a { color: inherit; text-decoration: none; }
+    a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+      outline: 3px solid var(--gold-2);
+      outline-offset: 4px;
+    }
+    .skip-link {
+      position: fixed; top: 10px; left: 10px; z-index: 9999;
+      padding: .75rem 1rem; background: var(--white); color: var(--ink);
+      transform: translateY(-150%); border-radius: 8px;
+    }
+    .skip-link:focus { transform: translateY(0); }
+    .container { width: min(calc(100% - 40px), var(--max)); margin-inline: auto; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: .6rem;
+      margin: 0 0 1.1rem; color: #876b2f; font-weight: 800;
+      font-size: .78rem; letter-spacing: .14em; text-transform: uppercase;
+    }
+    .eyebrow::before { content: ""; width: 28px; height: 2px; background: var(--gold); }
+    h1, h2, h3 { margin: 0; letter-spacing: -.035em; line-height: 1.08; }
+    h1 { font-size: clamp(2.65rem, 6vw, 5.5rem); font-weight: 760; }
+    h2 { font-size: clamp(2.1rem, 4vw, 3.65rem); }
+    h3 { font-size: 1.25rem; }
+    p { margin: 0; }
+    .section { padding: clamp(78px, 10vw, 132px) 0; }
+    .section-head { max-width: 720px; margin-bottom: 48px; }
+    .section-head p:not(.eyebrow) { margin-top: 1.2rem; color: var(--muted); font-size: 1.08rem; }
+    .button {
+      display: inline-flex; min-height: 52px; align-items: center; justify-content: center; gap: .7rem;
+      padding: .85rem 1.35rem; border: 1px solid transparent; border-radius: 999px;
+      background: var(--gold); color: var(--navy); font-weight: 800; cursor: pointer;
+      transition: transform .2s ease, background .2s ease, border-color .2s ease;
+    }
+    .button:hover { transform: translateY(-2px); background: var(--gold-2); }
+    .button--ghost { background: transparent; color: var(--white); border-color: rgba(255,255,255,.28); }
+    .button--ghost:hover { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.52); }
+    .button svg { width: 18px; height: 18px; }
+
+    /* Navegação */
+    .site-header {
+      position: sticky; top: 0; z-index: 50; height: 82px;
+      background: rgba(247, 248, 246, .92); border-bottom: 1px solid rgba(16,32,43,.08);
+      backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+    }
+    .nav-wrap { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
+    .brand { display: inline-flex; align-items: center; flex: 0 0 auto; }
+    .brand img { width: 236px; height: auto; }
+    .nav-list { display: flex; align-items: center; gap: 2rem; margin: 0; padding: 0; list-style: none; }
+    .nav-list a:not(.button) { color: var(--ink-2); font-size: .9rem; font-weight: 700; }
+    .nav-list a:not(.button):hover { color: #8a6c2c; }
+    .menu-toggle {
+      display: none; width: 46px; height: 46px; place-items: center; border: 1px solid var(--line);
+      border-radius: 50%; background: var(--white); color: var(--ink); cursor: pointer;
+    }
+
+    /* Hero */
+    .hero {
+      position: relative; isolation: isolate; overflow: hidden; color: var(--white);
+      background: var(--navy); min-height: calc(100svh - 82px); display: grid; align-items: center;
+      padding: clamp(78px, 9vw, 125px) 0;
+    }
+    .hero::before {
+      content: ""; position: absolute; z-index: -2; inset: 0;
+      background: radial-gradient(circle at 83% 22%, rgba(199,164,85,.18), transparent 28%),
+                  linear-gradient(110deg, transparent 55%, rgba(255,255,255,.035) 55% 56%, transparent 56%);
+    }
+    .hero::after {
+      content: "PK"; position: absolute; z-index: -1; right: -2vw; bottom: -14vw;
+      color: rgba(255,255,255,.022); font-size: min(44vw, 620px); font-weight: 900; line-height: 1;
+      letter-spacing: -.14em;
+    }
+    .hero-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(320px, .72fr); gap: 8vw; align-items: center; }
+    .hero .eyebrow { color: var(--gold-2); }
+    .hero h1 span { color: var(--gold-2); }
+    .hero-lead { max-width: 690px; margin-top: 1.7rem; color: #c6d0d5; font-size: clamp(1.08rem, 1.8vw, 1.3rem); }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: .85rem; margin-top: 2.2rem; }
+    .hero-proof {
+      margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,.13);
+      display: flex; flex-wrap: wrap; gap: 1.6rem 2.6rem;
+    }
+    .proof-item strong { display: block; color: var(--gold-2); font-size: 1.45rem; line-height: 1.2; }
+    .proof-item span { color: #9fb0ba; font-size: .83rem; }
+    .hero-panel {
+      position: relative; padding: 34px; border: 1px solid rgba(255,255,255,.13); border-radius: 32px;
+      background: linear-gradient(145deg, rgba(255,255,255,.095), rgba(255,255,255,.025));
+      box-shadow: 0 35px 100px rgba(0,0,0,.25); backdrop-filter: blur(12px);
+    }
+    .panel-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; }
+    .panel-top span { color: #9fb0ba; font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; }
+    .live-dot { display: inline-flex; align-items: center; gap: .5rem; color: #d3ddd8; font-size: .78rem; }
+    .live-dot::before { content: ""; width: 8px; height: 8px; background: var(--success); border-radius: 50%; box-shadow: 0 0 0 5px rgba(26,143,92,.15); }
+    .system-map { display: grid; gap: 10px; }
+    .map-row { display: grid; grid-template-columns: 38px 1fr auto; gap: 12px; align-items: center; padding: 15px; border-radius: 14px; background: rgba(6,15,21,.58); }
+    .map-icon { width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid rgba(199,164,85,.32); border-radius: 10px; color: var(--gold-2); }
+    .map-icon svg { width: 19px; height: 19px; }
+    .map-copy strong { display: block; font-size: .9rem; }
+    .map-copy span { display: block; color: #8fa2ad; font-size: .75rem; }
+    .check { width: 24px; height: 24px; display: grid; place-items: center; border-radius: 50%; background: rgba(26,143,92,.18); color: #72d6aa; font-size: .8rem; }
+    .connector { width: 2px; height: 12px; background: rgba(199,164,85,.4); margin: -11px 0 -11px 33px; position: relative; z-index: 1; }
+
+    /* Conteúdo */
+    .intro-strip { background: var(--white); border-bottom: 1px solid var(--line); }
+    .intro-grid { min-height: 122px; display: grid; grid-template-columns: 1.4fr repeat(3, 1fr); align-items: stretch; }
+    .intro-grid > div { display: grid; align-content: center; padding: 24px 30px; border-left: 1px solid var(--line); }
+    .intro-grid > div:first-child { padding-left: 0; border-left: 0; }
+    .intro-grid strong { display: block; color: var(--ink); }
+    .intro-grid span { color: var(--muted); font-size: .83rem; }
+    .intro-label { color: var(--muted); font-size: .88rem; max-width: 230px; }
+    .services-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+    .service-card {
+      min-height: 300px; padding: clamp(28px, 4vw, 42px); border: 1px solid var(--line);
+      border-radius: var(--radius); background: var(--white); transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    }
+    .service-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); border-color: rgba(199,164,85,.55); }
+    .service-card:first-child { background: var(--ink); color: var(--white); border-color: var(--ink); }
+    .service-card:first-child p { color: #bdc9cf; }
+    .card-number { display: flex; justify-content: space-between; align-items: center; margin-bottom: 54px; color: var(--gold); font-weight: 800; font-size: .8rem; }
+    .card-icon { width: 45px; height: 45px; display: grid; place-items: center; border: 1px solid currentColor; border-radius: 14px; }
+    .card-icon svg { width: 21px; height: 21px; }
+    .service-card h3 { margin-bottom: 1rem; font-size: clamp(1.35rem, 2vw, 1.75rem); }
+    .service-card p { color: var(--muted); }
+    .process { background: var(--white); }
+    .process-grid { display: grid; grid-template-columns: repeat(4, 1fr); counter-reset: steps; }
+    .process-step { position: relative; padding: 34px 28px 0; border-top: 2px solid var(--line); counter-increment: steps; }
+    .process-step::before { content: counter(steps, decimal-leading-zero); position: absolute; top: -18px; left: 28px; padding: 2px 8px; background: var(--white); color: #8a6c2c; font-size: .8rem; font-weight: 900; }
+    .process-step h3 { margin-bottom: .85rem; }
+    .process-step p { color: var(--muted); font-size: .93rem; }
+    .about-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: 9vw; align-items: start; }
+    .experience-card { position: sticky; top: 116px; padding: 38px; color: var(--white); background: var(--ink); border-radius: 28px; box-shadow: var(--shadow); }
+    .experience-card .big { display: block; color: var(--gold-2); font-size: clamp(3.8rem, 7vw, 6rem); font-weight: 800; line-height: .9; letter-spacing: -.07em; }
+    .experience-card p { margin-top: 1rem; color: #bcc9cf; }
+    .about-copy > p:not(.eyebrow) { color: var(--muted); font-size: 1.07rem; margin-top: 1.2rem; }
+    .competencies { display: grid; gap: 0; margin-top: 2.2rem; border-top: 1px solid var(--line); }
+    .competency { display: grid; grid-template-columns: 30px 1fr; gap: 14px; padding: 18px 0; border-bottom: 1px solid var(--line); }
+    .competency svg { width: 20px; color: #96772f; margin-top: 3px; }
+    .competency strong { display: block; }
+    .competency span { color: var(--muted); font-size: .9rem; }
+
+    /* Contato */
+    .contact { color: var(--white); background: var(--navy); }
+    .contact-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 7vw; }
+    .contact .eyebrow { color: var(--gold-2); }
+    .contact-copy > p:not(.eyebrow) { margin-top: 1.2rem; color: #b7c5cc; font-size: 1.08rem; }
+    .contact-details { display: grid; gap: .8rem; margin-top: 2rem; }
+    .contact-details a { color: var(--gold-2); font-weight: 750; overflow-wrap: anywhere; }
+    .contact-form { padding: clamp(28px, 4vw, 44px); color: var(--ink); background: var(--white); border-radius: 28px; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .field { display: grid; gap: 7px; }
+    .field--full { grid-column: 1 / -1; }
+    label { font-size: .82rem; font-weight: 800; }
+    input, textarea { width: 100%; border: 1px solid var(--line); border-radius: 12px; background: #fafbfa; color: var(--ink); padding: .9rem 1rem; }
+    input { min-height: 50px; }
+    textarea { min-height: 132px; resize: vertical; }
+    input:focus, textarea:focus { border-color: var(--gold); outline: 3px solid rgba(199,164,85,.18); }
+    .form-note { margin-top: 12px; color: var(--muted); font-size: .78rem; }
+    .submit { margin-top: 20px; width: 100%; border: 0; }
+    .site-footer { padding: 34px 0; color: #899aa4; background: #071016; border-top: 1px solid rgba(255,255,255,.08); }
+    .footer-wrap { display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
+    .footer-mark { color: var(--white); font-weight: 800; }
+    .footer-mark span { color: var(--gold); }
+    .whatsapp {
+      position: fixed; right: 24px; bottom: 24px; z-index: 40; width: 58px; height: 58px;
+      display: grid; place-items: center; color: var(--white); background: #168a53; border-radius: 50%;
+      box-shadow: 0 12px 30px rgba(13,83,50,.3); transition: transform .2s ease;
+    }
+    .whatsapp:hover { transform: translateY(-3px) scale(1.03); }
+    .whatsapp svg { width: 28px; height: 28px; }
+
+    @media (max-width: 900px) {
+      .menu-toggle { display: grid; }
+      .nav-list {
+        position: absolute; inset: 81px 0 auto; display: none; padding: 24px 20px 30px;
+        flex-direction: column; align-items: stretch; gap: 0; background: var(--paper); border-bottom: 1px solid var(--line);
+        box-shadow: 0 24px 45px rgba(11,27,38,.1);
+      }
+      .nav-list[data-open="true"] { display: flex; }
+      .nav-list li a { display: block; padding: 13px 0; }
+      .nav-list .button { margin-top: 12px; }
+      .hero-grid, .about-grid, .contact-grid { grid-template-columns: 1fr; }
+      .hero { min-height: auto; }
+      .hero-panel { max-width: 620px; }
+      .intro-grid { grid-template-columns: 1fr 1fr; }
+      .intro-grid > div:first-child { grid-column: 1 / -1; padding-left: 24px; border-bottom: 1px solid var(--line); }
+      .intro-grid > div:nth-child(2) { border-left: 0; }
+      .process-grid { grid-template-columns: 1fr 1fr; row-gap: 46px; }
+      .experience-card { position: static; }
+    }
+    @media (max-width: 620px) {
+      .container { width: min(calc(100% - 28px), var(--max)); }
+      .brand img { width: 190px; }
+      .site-header { height: 74px; }
+      .nav-list { inset-block-start: 73px; }
+      .hero { padding-top: 62px; }
+      .hero-actions, .hero-actions .button { width: 100%; }
+      .hero-panel { padding: 22px; border-radius: 22px; }
+      .hero-proof { gap: 1.2rem 2rem; }
+      .intro-grid, .services-grid, .process-grid, .form-grid { grid-template-columns: 1fr; }
+      .intro-grid > div, .intro-grid > div:first-child { grid-column: auto; padding: 20px 4px; border-left: 0; border-bottom: 1px solid var(--line); }
+      .field--full { grid-column: auto; }
+      .process-grid { gap: 46px; }
+      .footer-wrap { align-items: flex-start; flex-direction: column; gap: .5rem; }
+      .whatsapp { right: 16px; bottom: 16px; width: 54px; height: 54px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
+    }
+  </style>
 </head>
 <body>
+  <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#inicio" aria-label="Primary Key Consultoria — página inicial">
+        <img src="primary-key-logo.png" alt="Primary Key Consultoria" width="2172" height="724">
+      </a>
+      <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-principal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <nav aria-label="Navegação principal">
+        <ul class="nav-list" id="menu-principal" data-open="false">
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#metodo">Método</a></li>
+          <li><a href="#experiencia">Experiência</a></li>
+          <li><a class="button" href="#contato">Falar com um consultor</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-    <!-- Cabeçalho -->
-    <header>
-       <div class="logo-container">
-            <img src="Logo_PK.png" alt="Logotipo Primary Key Consultoria - Especialistas em ERP e Dados">
-	   </div>
-       <div class="menu-toggle" id="mobile-menu">
-           <i class="fa-solid fa-bars"></i>
-       </div>
-        <nav>
-            <ul class="nav-list">
-                <li><a href="#inicio">Início</a></li>
-                <li><a href="#abordagem">Nossa Abordagem</a></li>
-                <li><a href="#metodo">Método</a></li>
-                <li><a href="#servicos">Especialidades</a></li>
-                <li><a href="#rede">Rede</a></li>
-                <li><a href="#contato" class="cta-btn">Falar com Consultor</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <!-- Seção Hero -->
-    <section id="inicio" class="hero">
-        <canvas id="dataNetwork"></canvas>
-        <div class="hero-content">
-            <div class="hero-badge"><i class="fa-solid fa-shield-halved"></i> Pronto para a Reforma Tributária</div>
-            <h1>Estratégia, Operações e <span>Sistemas ERP</span></h1>
-            <p>Conectamos sua empresa a especialistas de alto nível para auditoria de processos, adequação às novas exigências tributárias e integração inteligente de dados de ponta a ponta.</p>
-            
-            <div class="hero-kpi-container">
-                <div class="hero-kpi">
-                    <span id="kpi-efficiency">0</span>
-                    <p>Foco em Governança</p>
-                </div>
-                <div class="hero-kpi">
-                    <span id="kpi-roi">0</span>
-                    <p>Agilidade na Entrega</p>
-                </div>
-            </div>
-
-            <a href="#servicos" class="cta-btn" style="padding: 15px 30px; font-size: 14px;">Conhecer Soluções</a>
+  <main id="conteudo">
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">Consultoria em ERP e tecnologia</p>
+          <h1>Seu ERP operando no ritmo do <span>seu negócio.</span></h1>
+          <p class="hero-lead">Analisamos a aderência, implantamos e otimizamos sistemas ERP com visão de processos operacionais, domínio técnico e foco em resultados sustentáveis.</p>
+          <div class="hero-actions">
+            <a class="button" href="#contato">Converse sobre seu projeto <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 14 0m-6-6 6 6-6 6"/></svg></a>
+            <a class="button button--ghost" href="#servicos">Conheça as soluções</a>
+          </div>
+          <div class="hero-proof" aria-label="Destaques de experiência">
+            <div class="proof-item"><strong>Desde 1994</strong><span>trajetória em tecnologia e sistemas</span></div>
+            <div class="proof-item"><strong>ERP</strong><span>visão de ponta a ponta</span></div>
+            <div class="proof-item"><strong>360°</strong><span>visão integrada de processos</span></div>
+          </div>
         </div>
+        <div class="hero-panel" aria-label="Fluxo integrado de implantação ERP">
+          <div class="panel-top"><span>Visão integrada</span><span class="live-dot">Projeto em controle</span></div>
+          <div class="system-map">
+            <div class="map-row"><span class="map-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19V5h16v14H4Z"/><path d="M4 9h16M8 5v4"/></svg></span><span class="map-copy"><strong>Processos</strong><span>Mapeamento e aderência</span></span><span class="check">✓</span></div>
+            <span class="connector"></span>
+            <div class="map-row"><span class="map-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg></span><span class="map-copy"><strong>ERP</strong><span>Configuração e integração</span></span><span class="check">✓</span></div>
+            <span class="connector"></span>
+            <div class="map-row"><span class="map-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m4 18 5-6 4 3 7-9"/><path d="M15 6h5v5"/></svg></span><span class="map-copy"><strong>Resultados</strong><span>Controle e decisão</span></span><span class="check">✓</span></div>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- Quem Somos & Dor do Turnover / Subutilização -->
-    <section id="abordagem" class="about">
-        <div class="about-text">
-            <h2>Processos complexos exigem soluções direcionadas.</h2>
-            <br>
-            <p>Estudos de mercado apontam que <strong>grande parte das empresas subutiliza seus sistemas ERP</strong>. Um dos principais fatores para isso é o alto <em>turnover</em> (rotação) da equipe interna, que acaba levando consigo o conhecimento crítico sobre as regras do sistema e os processos corporativos.</p>
-            <p>A <strong>Primary Key Consultoria</strong> atua exatamente para blindar o seu negócio contra essa vulnerabilidade, garantindo que o seu ERP funcione em plena capacidade para gerar resultados, e não gargalos.</p>
-            <p>Nosso modelo modular por <em>squads</em> aciona especialistas sob demanda: auditores, implantadores de ERP e engenheiros de dados preparados para estruturar sua empresa para o futuro — incluindo os profundos impactos da <strong>Reforma Tributária</strong>.</p>
-        </div>
-        <div class="about-visual">
-            <div class="chart-animation">
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
-            </div>
-        </div>
+    <section class="intro-strip" aria-label="Áreas atendidas">
+      <div class="container intro-grid">
+        <div><p class="intro-label">Integração entre processos, sistemas e tecnologia.</p></div>
+        <div><strong>Implantação</strong><span>Do diagnóstico à entrada em produção</span></div>
+        <div><strong>Otimização</strong><span>Mais aderência e eficiência operacional</span></div>
+        <div><strong>Sustentação</strong><span>Evolução contínua com segurança</span></div>
+      </div>
     </section>
 
-    <!-- Como Trabalhamos (Método) -->
-    <section id="metodo" class="method">
-        <div class="section-title">
-            <h2>Como Atuamos</h2>
-            <p>Um processo estruturado para transformar desafios operacionais e regulatórios em vantagens competitivas.</p>
+    <section class="section" id="servicos">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Soluções</p>
+          <h2>Consultoria que conecta operação, sistemas e decisão.</h2>
+          <p>Cada trabalho parte da realidade operacional para transformar o ERP em uma plataforma confiável para executar processos e produzir informações.</p>
         </div>
-        <div class="method-grid">
-            <div class="method-card">
-                <span class="method-number">01</span>
-                <h3>Diagnóstico e Mapeamento</h3>
-                <p>Analisamos profundamente o fluxo operacional da sua empresa, identificando gargalos em processos, falhas de aderência no ERP e o nível de preparação para o novo cenário tributário.</p>
-            </div>
-            <div class="method-card">
-                <span class="method-number">02</span>
-                <h3>Alocação da Squad Especialista</h3>
-                <p>Selecionamos cirurgicamente os profissionais ideais da nossa rede com base na complexidade do seu projeto, contornando a escassez ou a rotatividade da equipe interna.</p>
-            </div>
-            <div class="method-card">
-                <span class="method-number">03</span>
-                <h3>Execução e Governança</h3>
-                <p>Conduzimos as entregas com rigor técnico e acompanhamento de KPIs, garantindo escalabilidade, conformidade fiscal e autonomia sustentável para o seu negócio.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Áreas de Atuação -->
-    <section id="servicos" class="services">
-        <div class="section-title">
-            <h2>Nossas Especialidades</h2>
-            <p>Visão de negócio aliada à excelência técnica estrutural.</p>
-        </div>
-        
         <div class="services-grid">
-            <div class="service-card" style="border: 2px solid var(--gold);">
-                <div class="service-icon"><i class="fa-solid fa-server"></i></div>
-                <h3>Sistemas ERP & Reforma Tributária</h3>
-                <p><strong>Auditoria, customizações avançadas e adequação legal.</strong> Mapeamos seus fluxos fiscais e ajustamos o ERP para refletir as novas exigências da Reforma Tributária, eliminando riscos de autuações e otimizando módulos operacionais.</p>
-            </div>
-
-            <div class="service-card">
-                <div class="service-icon"><i class="fa-solid fa-code-merge"></i></div>
-                <h3>Integração de Sistemas & APIs</h3>
-                <p>Sistemas conversando entre si. Automatizamos rotinas desenvolvendo integrações robustas (APIs) entre seu ERP, bancos de dados e webservices corporativos externos (como consultas cadastrais na Receita ou cotações em tempo real via Banco Central).</p>
-            </div>
-
-            <div class="service-card">
-                <div class="service-icon"><i class="fa-solid fa-chart-line"></i></div>
-                <h3>Business Intelligence</h3>
-                <p>Transformação de dados brutos do seu ERP em inteligência competitiva. Construção de dashboards interativos utilizando Microsoft Power BI, permitindo monitoramento de KPIs críticos e tomada de decisão fundamentada.</p>
-            </div>
-            
-            <div class="service-card">
-                <div class="service-icon"><i class="fa-solid fa-microchip"></i></div>
-                <h3>IA & Dados Estruturados</h3>
-                <p>Aplicamos automação avançada no seu dia a dia. Utilizando tecnologias como Python, bancos de dados vetoriais e inteligência artificial para sistemas RAG, aceleramos processos de negócios e a gestão do conhecimento corporativo.</p>
-            </div>
+          <article class="service-card">
+            <div class="card-number"><span>01</span><span class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h10M4 18h7"/><circle cx="18" cy="16" r="3"/></svg></span></div>
+            <h3>Processos e análise de aderência</h3>
+            <p>Mapeamento do fluxo atual, identificação de gargalos e desenho do processo futuro alinhado às capacidades do sistema.</p>
+          </article>
+          <article class="service-card">
+            <div class="card-number"><span>02</span><span class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg></span></div>
+            <h3>Implantação e evolução de ERP</h3>
+            <p>Planejamento, parametrização, migração, testes, treinamento e entrada em produção com governança em todas as etapas.</p>
+          </article>
+          <article class="service-card">
+            <div class="card-number"><span>03</span><span class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 7H5a3 3 0 0 0-3 3v4a3 3 0 0 0 3 3h3M16 7h3a3 3 0 0 1 3 3v4a3 3 0 0 1-3 3h-3M8 12h8"/></svg></span></div>
+            <h3>Integrações e automações</h3>
+            <p>Conexão do ERP com sistemas corporativos, serviços externos e rotinas automatizadas para reduzir retrabalho e riscos.</p>
+          </article>
+          <article class="service-card">
+            <div class="card-number"><span>04</span><span class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span></div>
+            <h3>Dados, relatórios e indicadores</h3>
+            <p>Relatórios, painéis e informações extraídas do ERP para apoiar controles, conformidade e tomada de decisão.</p>
+          </article>
         </div>
+      </div>
     </section>
 
-    <!-- Rede de Especialistas -->
-    <section id="rede" class="network">
-        <div class="section-title">
-            <h2>Alocação Inteligente</h2>
-            <p style="max-width: 700px; margin: 0 auto;">Nós gerimos a estratégia e a qualidade; nossa rede de consultores parceiros executa a técnica com precisão.</p>
+    <section class="section process" id="metodo">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Método de trabalho</p>
+          <h2>Clareza do diagnóstico à evolução contínua.</h2>
         </div>
-        
-        <div class="network-stats">
-            <div class="stat-item">
-                <h4 class="counter" data-target="100">0</h4>
-                <p>Sob Demanda (%)</p>
-            </div>
-            <div class="stat-item">
-                <h4 class="counter" data-target="360">0</h4>
-                <p>Auditoria Global (Graus)</p>
-            </div>
-            <div class="stat-item">
-                <h4>ERP</h4>
-                <p>Expertise Focada</p>
-            </div>
+        <div class="process-grid">
+          <article class="process-step"><h3>Entender</h3><p>Objetivos, processos, riscos, requisitos e prioridades do negócio.</p></article>
+          <article class="process-step"><h3>Desenhar</h3><p>Solução, escopo, cronograma, responsabilidades e critérios de sucesso.</p></article>
+          <article class="process-step"><h3>Implantar</h3><p>Configuração, validação, capacitação e condução cuidadosa da mudança.</p></article>
+          <article class="process-step"><h3>Evoluir</h3><p>Acompanhamento, indicadores e melhorias orientadas por resultados.</p></article>
         </div>
+      </div>
     </section>
 
-    <!-- Formulário de Contato -->
-    <section id="contato" class="contact-section">
-        <div class="section-title">
-            <h2>Fale com um Consultor</h2>
-            <p>Preencha o formulário abaixo e nossa equipe retornará o contato para preparar sua empresa frente aos novos desafios.</p>
+    <section class="section" id="experiencia">
+      <div class="container about-grid">
+        <aside class="experience-card">
+          <span class="big">1994</span>
+          <h3>o início de uma trajetória conectando pessoas, processos e sistemas.</h3>
+          <p>Experiência profissional anterior em projetos de implantação, migração, conformidade, dados gerenciais e condução da mudança.</p>
+        </aside>
+        <div class="about-copy">
+          <p class="eyebrow">Experiência que fundamenta a consultoria</p>
+          <h2>Uma empresa independente, apoiada por uma trajetória consistente.</h2>
+          <p>A Primary Key Consultoria nasce da experiência acumulada por seu fundador desde 1994 em tecnologia, processos e implantação de sistemas integrados. Essa trajetória profissional anterior sustenta uma atuação independente, preparada para trabalhar com diferentes plataformas, fornecedores e contextos empresariais.</p>
+          <div class="competencies">
+            <div class="competency"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 4 4L19 6"/></svg><div><strong>Gestão de projetos e mudanças</strong><span>Governança, comunicação e condução das equipes.</span></div></div>
+            <div class="competency"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 4 4L19 6"/></svg><div><strong>Mapeamento e melhoria de processos</strong><span>Aderência sistêmica com foco na realidade operacional.</span></div></div>
+            <div class="competency"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 4 4L19 6"/></svg><div><strong>Dados e conformidade sistêmica</strong><span>Informações confiáveis para controles, decisões e obrigações corporativas.</span></div></div>
+          </div>
         </div>
-        <div class="contact-container">
-            <form action="https://formspree.io/f/xjyvkaze" method="POST">
-                <div class="form-group">
-                    <label for="nome">Nome Completo</label>
-                    <input type="text" id="nome" name="nome" class="form-control" placeholder="Seu nome" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">E-mail Corporativo</label>
-                    <input type="email" id="email" name="email" class="form-control" placeholder="voce@suaempresa.com.br" required>
-                </div>
-                <div class="form-group">
-                    <label for="empresa">Empresa</label>
-                    <input type="text" id="empresa" name="empresa" class="form-control" placeholder="Nome da sua empresa">
-                </div>
-                <div class="form-group">
-                    <label for="mensagem">Como podemos ajudar?</label>
-                    <textarea id="mensagem" name="mensagem" class="form-control" placeholder="Descreva brevemente sua necessidade ou projeto (ex: Adequação à Reforma Tributária, Implantação de ERP, Integração...)" required></textarea>
-                </div>
-                <button type="submit" class="submit-btn">Enviar Mensagem</button>
-            </form>
-        </div>
+      </div>
     </section>
 
-    <!-- Rodapé -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <div class="logo-container" style="margin-bottom: 20px; background-color: #fff; padding: 10px; border-radius: 8px; display: inline-block;">
-                        <img src="Logo_PK.png" alt="Logotipo Primary Key Consultoria" style="height: 50px; width: auto;">
-                    </div>
-                    <p>Especialistas em adequação à Reforma Tributária, auditoria de ERP e integração de sistemas inteligentes.</p>
-                </div>
-                <div class="footer-col">
-                    <h4>Contato</h4>
-                    <p>contato@primarykeyconsultoria.com.br</p>
-                    <p>www.primarykeyconsultoria.com.br</p>
-                </div>
-                <div class="footer-col">
-                    <h4>Áreas</h4>
-                    <p>Reforma Tributária & ERP</p>
-                    <p>Integração de APIs</p>
-                    <p>Business Intelligence</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Primary Key Consultoria. Todos os direitos reservados.</p>
-            </div>
+    <section class="section contact" id="contato">
+      <div class="container contact-grid">
+        <div class="contact-copy">
+          <p class="eyebrow">Vamos conversar</p>
+          <h2>Qual é o próximo desafio do seu ERP?</h2>
+          <p>Conte brevemente o cenário da sua empresa. A conversa inicial ajuda a identificar prioridades e o melhor caminho para o projeto.</p>
+          <div class="contact-details">
+            <a href="mailto:contato@primarykeyconsultoria.com.br">contato@primarykeyconsultoria.com.br</a>
+            <a href="https://wa.me/5531984311150" target="_blank" rel="noopener noreferrer">WhatsApp: (31) 98431-1150</a>
+          </div>
         </div>
-    </footer>
+        <form class="contact-form" action="https://formspree.io/f/xjyvkaze" method="post">
+          <div class="form-grid">
+            <div class="field"><label for="nome">Nome</label><input id="nome" name="nome" type="text" autocomplete="name" required></div>
+            <div class="field"><label for="email">E-mail corporativo</label><input id="email" name="email" type="email" autocomplete="email" required></div>
+            <div class="field field--full"><label for="empresa">Empresa</label><input id="empresa" name="empresa" type="text" autocomplete="organization"></div>
+            <div class="field field--full"><label for="mensagem">Como podemos ajudar?</label><textarea id="mensagem" name="mensagem" placeholder="Ex.: implantação, revisão de processos, integração ou sustentação do ERP" required></textarea></div>
+          </div>
+          <button class="button submit" type="submit">Enviar mensagem <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 14 0m-6-6 6 6-6 6"/></svg></button>
+          <p class="form-note">Ao enviar, você autoriza o contato da Primary Key Consultoria sobre esta solicitação.</p>
+        </form>
+      </div>
+    </section>
+  </main>
 
-    <!-- Botão Flutuante do WhatsApp -->
-    <a href="https://wa.me/5531984311150" target="_blank" class="whatsapp-btn" aria-label="Fale conosco pelo WhatsApp">
-        <i class="fa-brands fa-whatsapp"></i>
-    </a>
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <p class="footer-mark">Primary Key <span>Consultoria</span></p>
+      <p>© <span id="ano">2026</span> Primary Key Consultoria. Todos os direitos reservados.</p>
+    </div>
+  </footer>
 
-    <!-- Scripts da Página -->
-    <script>
-        const canvas = document.getElementById('dataNetwork');
-        const ctx = canvas.getContext('2d');
-        let width, height;
-        let particles = [];
+  <a class="whatsapp" href="https://wa.me/5531984311150?text=Olá%2C%20gostaria%20de%20conversar%20sobre%20um%20projeto%20de%20ERP." target="_blank" rel="noopener noreferrer" aria-label="Conversar pelo WhatsApp">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20.5 11.7a8.4 8.4 0 0 1-12.4 7.4L3.5 20.5l1.4-4.4A8.4 8.4 0 1 1 20.5 11.7Z"/><path d="M8.2 7.6c.2-.4.4-.4.7-.4h.5c.2 0 .4.1.5.4l.8 2c.1.3 0 .5-.1.7l-.6.7c-.2.2-.2.4-.1.6.7 1.4 1.7 2.5 3.2 3.1.2.1.4.1.6-.1l.8-1c.2-.2.4-.3.7-.2l1.9.9c.3.1.4.3.4.6 0 .5-.2 1.4-.7 1.8-.5.5-1.4.8-2.2.8-1.2 0-3.4-.7-5.3-2.5-1.5-1.4-2.8-3.7-2.8-5.6 0-.8.3-1.4.7-1.8Z"/></svg>
+  </a>
 
-        function resize() {
-            width = canvas.width = window.innerWidth;
-            height = canvas.height = document.querySelector('.hero').offsetHeight;
-        }
-        window.addEventListener('resize', resize);
-        resize();
-
-        class Particle {
-            constructor() {
-                this.x = Math.random() * width;
-                this.y = Math.random() * height;
-                this.vx = (Math.random() - 0.5) * 0.3;
-                this.vy = (Math.random() - 0.5) * 0.3;
-                this.radius = Math.random() * 1.5 + 1;
-            }
-            update() {
-                this.x += this.vx;
-                this.y += this.vy;
-                if (this.x < 0 || this.x > width) this.vx = -this.vx;
-                if (this.y < 0 || this.y > height) this.vy = -this.vy;
-            }
-            draw() {
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-                ctx.fillStyle = '#B89346'; 
-                ctx.fill();
-            }
-        }
-        
-        for (let i = 0; i < 50; i++) particles.push(new Particle());
-
-        function animateCanvas() {
-            ctx.clearRect(0, 0, width, height);
-            for (let i = 0; i < particles.length; i++) {
-                particles[i].update();
-                particles[i].draw();
-                for (let j = i; j < particles.length; j++) {
-                    const dx = particles[i].x - particles[j].x;
-                    const dy = particles[i].y - particles[j].y;
-                    const distance = Math.sqrt(dx * dx + dy * dy);
-                    
-                    if (distance < 150) {
-                        ctx.beginPath();
-                        ctx.strokeStyle = `rgba(184, 147, 70, ${0.35 - distance/400})`;
-                        ctx.lineWidth = 1.5;
-                        ctx.moveTo(particles[i].x, particles[i].y);
-                        ctx.lineTo(particles[j].x, particles[j].y);
-                        ctx.stroke();
-                    }
-                }
-            }
-            requestAnimationFrame(animateCanvas);
-        }
-        animateCanvas();
-
-        function animateCounter(id, target, duration, suffix = '') {
-            let start = 0;
-            const element = document.getElementById(id);
-            if(!element) return;
-            const increment = target / (duration / 16); 
-            const timer = setInterval(() => {
-                start += increment;
-                if (start >= target) {
-                    clearInterval(timer);
-                    element.innerText = target + suffix;
-                } else {
-                    element.innerText = Math.floor(start) + suffix;
-                }
-            }, 16);
-        }
-
-        setTimeout(() => {
-            animateCounter('kpi-efficiency', 100, 2000, '%');
-            animateCounter('kpi-roi', 100, 2000, '%');
-        }, 500);
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const counters = entry.target.querySelectorAll('.counter');
-                    counters.forEach(counter => {
-                        const target = parseInt(counter.getAttribute('data-target'));
-                        let count = 0;
-                        const speed = target / 40;
-                        const updateCount = () => {
-                            count += speed;
-                            if (count < target) {
-                                counter.innerText = Math.ceil(count);
-                                requestAnimationFrame(updateCount);
-                            } else {
-                                counter.innerText = target;
-                            }
-                        };
-                        updateCount();
-                    });
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
-        
-        const networkSection = document.querySelector('.network');
-        if(networkSection) observer.observe(networkSection);
-
-        // Script do Menu Mobile
-        const mobileMenu = document.getElementById('mobile-menu');
-        const navList = document.querySelector('.nav-list');
-
-        if(mobileMenu && navList) {
-            mobileMenu.addEventListener('click', () => {
-                navList.classList.toggle('active');
-            });
-
-            document.querySelectorAll('.nav-list a').forEach(link => {
-                link.addEventListener('click', () => {
-                    navList.classList.remove('active');
-                });
-            });
-        }
-    </script>
+  <script>
+    const toggle = document.querySelector('.menu-toggle');
+    const menu = document.querySelector('.nav-list');
+    const closeMenu = () => {
+      menu.dataset.open = 'false';
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', 'Abrir menu');
+    };
+    toggle.addEventListener('click', () => {
+      const open = menu.dataset.open !== 'true';
+      menu.dataset.open = String(open);
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+    });
+    menu.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+    window.addEventListener('resize', () => { if (window.innerWidth > 900) closeMenu(); });
+    document.getElementById('ano').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
