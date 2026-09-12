@@ -1,16 +1,14 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#0d1922">
-  <meta name="description" content="Analisamos a ader�ncia, implantamos e otimizamos sistemas ERP com foco em processos operacionais e resultados sustent�veis. Conhe�a nossas solu��es desde 1994.">
-  <title>Primary Key Consultoria | Implanta��o e Otimiza��o de ERP</title>
-  
-  <link rel="canonical" href="https://primarykeyconsultoria.com.br" />
-  <link rel="icon" href="primary-key-logo.png" type="image/png">
-  
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="#0d1922" name="theme-color"/>
+<meta content="Consultoria especializada em implantação, otimização e sustentação de ERP, integração de sistemas, processos e inteligência de dados." name="description"/>
+<title>Primary Key Consultoria | Implantação e Otimização de ERP</title>
+<link href="primary-key-logo.png" rel="icon" type="image/png"/>
+<style>
     :root {
       --ink: #10202b;
       --ink-2: #1f3442;
@@ -22,27 +20,512 @@
       --gold: #c7a455;
       --gold-2: #e0c779;
       --line: #dce2e4;
+      --success: #1a8f5c;
       --shadow: 0 24px 70px rgba(11, 27, 38, .11);
       --radius: 24px;
       --max: 1180px;
     }
+
     *, *::before, *::after { box-sizing: border-box; }
     html { scroll-behavior: smooth; scroll-padding-top: 92px; }
     body {
-      margin: 0; color: var(--ink); background: var(--paper);
-      font-family: Inter, ui-sans-serif, system-ui, sans-serif;
-      font-size: 1rem; line-height: 1.65;
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 1rem;
+      line-height: 1.65;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
     }
+    img, svg { display: block; max-width: 100%; }
+    button, input, textarea { font: inherit; }
+    a { color: inherit; text-decoration: none; }
+    a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+      outline: 3px solid var(--gold-2);
+      outline-offset: 4px;
+    }
+    .skip-link {
+      position: fixed; top: 10px; left: 10px; z-index: 9999;
+      padding: .75rem 1rem; background: var(--white); color: var(--ink);
+      transform: translateY(-150%); border-radius: 8px;
+    }
+    .skip-link:focus { transform: translateY(0); }
     .container { width: min(calc(100% - 40px), var(--max)); margin-inline: auto; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: .6rem;
+      margin: 0 0 1.1rem; color: #876b2f; font-weight: 800;
+      font-size: .78rem; letter-spacing: .14em; text-transform: uppercase;
+    }
+    .eyebrow::before { content: ""; width: 28px; height: 2px; background: var(--gold); }
+    h1, h2, h3 { margin: 0; letter-spacing: -.035em; line-height: 1.08; }
+    h1 { font-size: clamp(2.65rem, 6vw, 5.5rem); font-weight: 760; }
+    h2 { font-size: clamp(2.1rem, 4vw, 3.65rem); }
+    h3 { font-size: 1.25rem; }
+    p { margin: 0; }
+    .section { padding: clamp(78px, 10vw, 132px) 0; }
+    .section-head { max-width: 720px; margin-bottom: 48px; }
+    .section-head p:not(.eyebrow) { margin-top: 1.2rem; color: var(--muted); font-size: 1.08rem; }
     .button {
       display: inline-flex; min-height: 52px; align-items: center; justify-content: center; gap: .7rem;
-      padding: .85rem 1.75rem; border-radius: 999px; background: var(--gold); color: var(--navy); font-weight: 800; cursor: pointer;
+      padding: .85rem 1.35rem; border: 1px solid transparent; border-radius: 999px;
+      background: var(--gold); color: var(--navy); font-weight: 800; cursor: pointer;
+      transition: transform .2s ease, background .2s ease, border-color .2s ease;
     }
-    /* Estilos essenciais encapsulados para o index.html completo fornecido no original */
+    .button:hover { transform: translateY(-2px); background: var(--gold-2); }
+    .button--ghost { background: transparent; color: var(--white); border-color: rgba(255,255,255,.28); }
+    .button--ghost:hover { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.52); }
+    .button svg { width: 18px; height: 18px; }
+
+    /* Navegação */
+    .site-header {
+      position: sticky; top: 0; z-index: 50; height: 82px;
+      background: rgba(247, 248, 246, .92); border-bottom: 1px solid rgba(16,32,43,.08);
+      backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+    }
+    .nav-wrap { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
+    .brand { display: inline-flex; align-items: center; flex: 0 0 auto; }
+    .brand img { width: 236px; height: auto; }
+    .nav-list { display: flex; align-items: center; gap: 2rem; margin: 0; padding: 0; list-style: none; }
+    .nav-list a:not(.button) { color: var(--ink-2); font-size: .9rem; font-weight: 700; }
+    .nav-list a:not(.button):hover { color: #8a6c2c; }
+    .menu-toggle {
+      display: none; width: 46px; height: 46px; place-items: center; border: 1px solid var(--line);
+      border-radius: 50%; background: var(--white); color: var(--ink); cursor: pointer;
+    }
+
+    /* Hero */
+    .hero {
+      position: relative; isolation: isolate; overflow: hidden; color: var(--white);
+      background: var(--navy); min-height: calc(100svh - 82px); display: grid; align-items: center;
+      padding: clamp(78px, 9vw, 125px) 0;
+    }
+    .hero::before {
+      content: ""; position: absolute; z-index: -2; inset: 0;
+      background: radial-gradient(circle at 83% 22%, rgba(199,164,85,.18), transparent 28%),
+                  linear-gradient(110deg, transparent 55%, rgba(255,255,255,.035) 55% 56%, transparent 56%);
+    }
+    .hero::after {
+      content: "PK"; position: absolute; z-index: -1; right: -2vw; bottom: -14vw;
+      color: rgba(255,255,255,.022); font-size: min(44vw, 620px); font-weight: 900; line-height: 1;
+      letter-spacing: -.14em;
+    }
+    .hero-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(320px, .72fr); gap: 8vw; align-items: center; }
+    .hero .eyebrow { color: var(--gold-2); }
+    .hero h1 span { color: var(--gold-2); }
+    .hero-lead { max-width: 690px; margin-top: 1.7rem; color: #c6d0d5; font-size: clamp(1.08rem, 1.8vw, 1.3rem); }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: .85rem; margin-top: 2.2rem; }
+    .hero-proof {
+      margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,.13);
+      display: flex; flex-wrap: wrap; gap: 1.6rem 2.6rem;
+    }
+    .proof-item strong { display: block; color: var(--gold-2); font-size: 1.45rem; line-height: 1.2; }
+    .proof-item span { color: #9fb0ba; font-size: .83rem; }
+    .hero-panel {
+      position: relative; padding: 34px; border: 1px solid rgba(255,255,255,.13); border-radius: 32px;
+      background: linear-gradient(145deg, rgba(255,255,255,.095), rgba(255,255,255,.025));
+      box-shadow: 0 35px 100px rgba(0,0,0,.25); backdrop-filter: blur(12px);
+    }
+    .panel-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; }
+    .panel-top span { color: #9fb0ba; font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; }
+    .live-dot { display: inline-flex; align-items: center; gap: .5rem; color: #d3ddd8; font-size: .78rem; }
+    .live-dot::before { content: ""; width: 8px; height: 8px; background: var(--success); border-radius: 50%; box-shadow: 0 0 0 5px rgba(26,143,92,.15); }
+    .system-map { display: grid; gap: 10px; }
+    .map-row { display: grid; grid-template-columns: 38px 1fr auto; gap: 12px; align-items: center; padding: 15px; border-radius: 14px; background: rgba(6,15,21,.58); }
+    .map-icon { width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid rgba(199,164,85,.32); border-radius: 10px; color: var(--gold-2); }
+    .map-icon svg { width: 19px; height: 19px; }
+    .map-copy strong { display: block; font-size: .9rem; }
+    .map-copy span { display: block; color: #8fa2ad; font-size: .75rem; }
+    .check { width: 24px; height: 24px; display: grid; place-items: center; border-radius: 50%; background: rgba(26,143,92,.18); color: #72d6aa; font-size: .8rem; }
+    .connector { width: 2px; height: 12px; background: rgba(199,164,85,.4); margin: -11px 0 -11px 33px; position: relative; z-index: 1; }
+
+    /* Conteúdo */
+    .intro-strip { background: var(--white); border-bottom: 1px solid var(--line); }
+    .intro-grid { min-height: 122px; display: grid; grid-template-columns: 1.4fr repeat(3, 1fr); align-items: stretch; }
+    .intro-grid > div { display: grid; align-content: center; padding: 24px 30px; border-left: 1px solid var(--line); }
+    .intro-grid > div:first-child { padding-left: 0; border-left: 0; }
+    .intro-grid strong { display: block; color: var(--ink); }
+    .intro-grid span { color: var(--muted); font-size: .83rem; }
+    .intro-label { color: var(--muted); font-size: .88rem; max-width: 230px; }
+    .services-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+    .service-card {
+      min-height: 300px; padding: clamp(28px, 4vw, 42px); border: 1px solid var(--line);
+      border-radius: var(--radius); background: var(--white); transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    }
+    .service-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); border-color: rgba(199,164,85,.55); }
+    .service-card:first-child { background: var(--ink); color: var(--white); border-color: var(--ink); }
+    .service-card:first-child p { color: #bdc9cf; }
+    .card-number { display: flex; justify-content: space-between; align-items: center; margin-bottom: 54px; color: var(--gold); font-weight: 800; font-size: .8rem; }
+    .card-icon { width: 45px; height: 45px; display: grid; place-items: center; border: 1px solid currentColor; border-radius: 14px; }
+    .card-icon svg { width: 21px; height: 21px; }
+    .service-card h3 { margin-bottom: 1rem; font-size: clamp(1.35rem, 2vw, 1.75rem); }
+    .service-card p { color: var(--muted); }
+    .process { background: var(--white); }
+    .process-grid { display: grid; grid-template-columns: repeat(4, 1fr); counter-reset: steps; }
+    .process-step { position: relative; padding: 34px 28px 0; border-top: 2px solid var(--line); counter-increment: steps; }
+    .process-step::before { content: counter(steps, decimal-leading-zero); position: absolute; top: -18px; left: 28px; padding: 2px 8px; background: var(--white); color: #8a6c2c; font-size: .8rem; font-weight: 900; }
+    .process-step h3 { margin-bottom: .85rem; }
+    .process-step p { color: var(--muted); font-size: .93rem; }
+    .about-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: 9vw; align-items: start; }
+    .experience-card { position: sticky; top: 116px; padding: 38px; color: var(--white); background: var(--ink); border-radius: 28px; box-shadow: var(--shadow); }
+    .experience-card .big { display: block; color: var(--gold-2); font-size: clamp(3.8rem, 7vw, 6rem); font-weight: 800; line-height: .9; letter-spacing: -.07em; }
+    .experience-card p { margin-top: 1rem; color: #bcc9cf; }
+    .about-copy > p:not(.eyebrow) { color: var(--muted); font-size: 1.07rem; margin-top: 1.2rem; }
+    .competencies { display: grid; gap: 0; margin-top: 2.2rem; border-top: 1px solid var(--line); }
+    .competency { display: grid; grid-template-columns: 30px 1fr; gap: 14px; padding: 18px 0; border-bottom: 1px solid var(--line); }
+    .competency svg { width: 20px; color: #96772f; margin-top: 3px; }
+    .competency strong { display: block; }
+    .competency span { color: var(--muted); font-size: .9rem; }
+
+    /* Contato */
+    .contact { color: var(--white); background: var(--navy); }
+    .contact-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 7vw; }
+    .contact .eyebrow { color: var(--gold-2); }
+    .contact-copy > p:not(.eyebrow) { margin-top: 1.2rem; color: #b7c5cc; font-size: 1.08rem; }
+    .contact-details { display: grid; gap: .8rem; margin-top: 2rem; }
+    .contact-details a { color: var(--gold-2); font-weight: 750; overflow-wrap: anywhere; }
+    .contact-form { padding: clamp(28px, 4vw, 44px); color: var(--ink); background: var(--white); border-radius: 28px; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .field { display: grid; gap: 7px; }
+    .field--full { grid-column: 1 / -1; }
+    label { font-size: .82rem; font-weight: 800; }
+    input, textarea { width: 100%; border: 1px solid var(--line); border-radius: 12px; background: #fafbfa; color: var(--ink); padding: .9rem 1rem; }
+    input { min-height: 50px; }
+    textarea { min-height: 132px; resize: vertical; }
+    input:focus, textarea:focus { border-color: var(--gold); outline: 3px solid rgba(199,164,85,.18); }
+    .form-note { margin-top: 12px; color: var(--muted); font-size: .78rem; }
+    .submit { margin-top: 20px; width: 100%; border: 0; }
+    .site-footer { padding: 34px 0; color: #899aa4; background: #071016; border-top: 1px solid rgba(255,255,255,.08); }
+    .footer-wrap { display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
+    .footer-mark { color: var(--white); font-weight: 800; }
+    .footer-mark span { color: var(--gold); }
+    .whatsapp {
+      position: fixed; right: 24px; bottom: 24px; z-index: 40; width: 58px; height: 58px;
+      display: grid; place-items: center; color: var(--white); background: #168a53; border-radius: 50%;
+      box-shadow: 0 12px 30px rgba(13,83,50,.3); transition: transform .2s ease;
+    }
+    .whatsapp:hover { transform: translateY(-3px) scale(1.03); }
+    .whatsapp svg { width: 28px; height: 28px; }
+
+    @media (max-width: 900px) {
+      .menu-toggle { display: grid; }
+      .nav-list {
+        position: absolute; inset: 81px 0 auto; display: none; padding: 24px 20px 30px;
+        flex-direction: column; align-items: stretch; gap: 0; background: var(--paper); border-bottom: 1px solid var(--line);
+        box-shadow: 0 24px 45px rgba(11,27,38,.1);
+      }
+      .nav-list[data-open="true"] { display: flex; }
+      .nav-list li a { display: block; padding: 13px 0; }
+      .nav-list .button { margin-top: 12px; }
+      .hero-grid, .about-grid, .contact-grid { grid-template-columns: 1fr; }
+      .hero { min-height: auto; }
+      .hero-panel { max-width: 620px; }
+      .intro-grid { grid-template-columns: 1fr 1fr; }
+      .intro-grid > div:first-child { grid-column: 1 / -1; padding-left: 24px; border-bottom: 1px solid var(--line); }
+      .intro-grid > div:nth-child(2) { border-left: 0; }
+      .process-grid { grid-template-columns: 1fr 1fr; row-gap: 46px; }
+      .experience-card { position: static; }
+    }
+    @media (max-width: 620px) {
+      .container { width: min(calc(100% - 28px), var(--max)); }
+      .brand img { width: 190px; }
+      .site-header { height: 74px; }
+      .nav-list { inset-block-start: 73px; }
+      .hero { padding-top: 62px; }
+      .hero-actions, .hero-actions .button { width: 100%; }
+      .hero-panel { padding: 22px; border-radius: 22px; }
+      .hero-proof { gap: 1.2rem 2rem; }
+      .intro-grid, .services-grid, .process-grid, .form-grid { grid-template-columns: 1fr; }
+      .intro-grid > div, .intro-grid > div:first-child { grid-column: auto; padding: 20px 4px; border-left: 0; border-bottom: 1px solid var(--line); }
+      .field--full { grid-column: auto; }
+      .process-grid { gap: 46px; }
+      .footer-wrap { align-items: flex-start; flex-direction: column; gap: .5rem; }
+      .whatsapp { right: 16px; bottom: 16px; width: 54px; height: 54px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
+    }
   </style>
-</head>
+<link href="https://www.primarykeyconsultoria.com.br/" rel="canonical"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "Primary Key Consultoria", "url": "https://www.primarykeyconsultoria.com.br/", "email": "contato@primarykeyconsultoria.com.br", "telephone": "+55 31 98431-1150", "description": "Consultoria independente em análise de aderência, implantação, otimização e sustentação de ERP, integrações e dados."}</script><style>
+/* Ajustes de legibilidade, foco e telas estreitas */
+:where(a,button,input,textarea):focus-visible { outline:3px solid #126fa2; outline-offset:4px; }
+.hero :focus-visible,.contact-copy :focus-visible,.site-footer :focus-visible { outline-color:#e0c779; }
+input:focus-visible,textarea:focus-visible { outline:3px solid #126fa2; outline-offset:3px; }
+.service-link { display:inline-flex; align-items:center; min-height:44px; margin-top:18px; text-decoration:underline; text-underline-offset:4px; font-weight:700; }
+.service-card:first-child .service-link { color:#e0c779; }
+.process-grid { list-style:none; padding:0; margin:0; }
+.method-note { margin-top:36px; color:var(--muted); max-width:70ch; }
+.privacy p { margin-top:20px; max-width:75ch; color:var(--muted); }
+.privacy a { overflow-wrap:anywhere; }
+.form-note { font-size:.875rem; } .form-note a { text-decoration:underline; }
+label { font-size:.875rem; } .card-number { color:#80621f; }
+.service-card:first-child .card-number { color:var(--gold-2); }
+.site-footer { padding-bottom:100px; }
+.panel-top { gap:12px; flex-wrap:wrap; }
+.map-row { grid-template-columns:38px minmax(0,1fr) auto; }
+.map-copy { overflow-wrap:anywhere; }
+@media(max-width:360px) { .nav-wrap { gap:12px; } .hero-panel { padding:16px; } .map-row { padding:10px; gap:8px; } }
+</style><meta content="2026-09-11.1" name="site-version"/><style>
+input, textarea, button { scroll-margin-top:120px; }
+/* Contato móvel: acesso WhatsApp explícito, sem sobrepor campos e envio. */
+body.contact-visible > .whatsapp { visibility:hidden; pointer-events:none; }
+.form-status { margin-top:18px; font-size:1rem; line-height:1.5; overflow-wrap:anywhere; }
+.form-status:empty { display:none; }
+.form-status[data-state="success"] { color:#145c39; }
+.form-status[data-state="error"] { color:#a32626; }
+button:disabled { cursor:wait; opacity:.7; }
+.brand img { aspect-ratio:3 / 1; }
+.deliverables { margin-top:18px; padding-top:18px; border-top:1px solid var(--line); font-size:.95rem; }
+.service-card:first-child .deliverables { border-color:#52616b; }
+.consent { display:grid; grid-template-columns:22px minmax(0,1fr); align-items:start; gap:12px; margin-top:22px; }
+.consent input { width:20px; height:20px; min-height:20px; margin:4px 0 0; accent-color:#806321; }
+.consent label { font-weight:400; }
+.consent a { text-decoration:underline; }
+.audience { background:#fff; border-bottom:1px solid var(--line); padding:56px 0; }
+.audience h2 { font-size:2rem; margin-bottom:20px; }
+.audience p { max-width:78ch; color:var(--muted); }
+.response-note { margin-top:14px; font-size:.95rem; }
+h1,h2,h3,.eyebrow,.panel-top span,.experience-card .big { letter-spacing:0; }
+h1 { font-size:4rem; } h2 { font-size:2.75rem; }
+.hero-lead { font-size:1.2rem; } .service-card h3 { font-size:1.6rem; }
+@media(max-width:620px) { h1 { font-size:2.5rem; } h2 { font-size:2rem; } .hero-lead { font-size:1.08rem; } .contact-form { padding:24px 18px; } }
+</style></head>
 <body>
-  <!-- O c�digo completo do HTML do site da Primary Key Consultoria (incluindo cabe�alho, hero, se��es de solu��es, p�blico, m�todo, experi�ncia, formul�rio de contato com Web3Forms/LGPD e rodap�) est� dispon�vel na �ntegra. -->
-  <p>Para utilizar o c�digo completo estruturado com todas as se��es, navega��o responsiva, formul�rio e estiliza��o, por favor utilize o bloco de c�digo completo fornecido na resposta ou solicite o arquivo.</p>
-</body>
+<a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+<header class="site-header">
+<div class="container nav-wrap">
+<a aria-label="Primary Key Consultoria — página inicial" class="brand" href="#inicio">
+<img alt="Primary Key Consultoria" height="724" src="primary-key-logo.png" width="2172"/>
+</a>
+<button aria-controls="menu-principal" aria-expanded="false" aria-label="Abrir menu" class="menu-toggle" type="button">
+<svg aria-hidden="true" fill="none" focusable="false" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+</button>
+<nav aria-label="Navegação principal">
+<ul class="nav-list" data-open="false" id="menu-principal">
+<li><a href="#servicos">Serviços</a></li>
+<li><a href="#metodo">Método</a></li>
+<li><a href="#experiencia">Experiência</a></li>
+<li><a class="button" href="#contato">Falar com um consultor</a></li>
+</ul>
+</nav>
+</div>
+</header>
+<main id="conteudo">
+<section aria-labelledby="inicio-titulo" class="hero" id="inicio">
+<div class="container hero-grid">
+<div>
+<p class="eyebrow">Consultoria em ERP e tecnologia</p>
+<h1 id="inicio-titulo">Seu ERP operando no ritmo do <span>seu negócio.</span></h1>
+<p class="hero-lead">Organizamos processos, sistemas ERP e dados para melhorar o controle da operação e a tomada de decisão. Conduzimos o trabalho do diagnóstico à implantação e à evolução do sistema.</p>
+<div class="hero-actions">
+<a class="button" href="#contato">Descrever meu desafio <svg aria-hidden="true" fill="none" focusable="false" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="m5 12 14 0m-6-6 6 6-6 6"></path></svg></a>
+<a class="button button--ghost" href="#servicos">Conheça as soluções</a>
+</div>
+<div aria-label="Destaques de experiência" class="hero-proof">
+<div class="proof-item"><strong>Desde 1994</strong><span>trajetória profissional do fundador</span></div>
+<div class="proof-item"><strong>ERP</strong><span>Visão ponta a ponta</span></div>
+<div class="proof-item"><strong>360°</strong><span>visão integrada de processos</span></div>
+</div>
+</div>
+<div aria-label="Fluxo integrado de implantação ERP" class="hero-panel">
+<div class="panel-top"><span>Visão integrada</span><span class="live-dot">Projetos sob controle</span></div>
+<div class="system-map">
+<div class="map-row"><span class="map-icon"><svg aria-hidden="true" fill="none" focusable="false" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 19V5h16v14H4Z"></path><path d="M4 9h16M8 5v4"></path></svg></span><span class="map-copy"><strong>Processos</strong><span>Mapeamento e aderência</span></span><span class="check">✓</span></div>
+<span class="connector"></span>
+<div class="map-row"><span class="map-icon"><svg aria-hidden="true" fill="none" focusable="false" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"></path></svg></span><span class="map-copy"><strong>ERP</strong><span>Configuração e integração</span></span><span class="check">✓</span></div>
+<span class="connector"></span>
+<div class="map-row"><span class="map-icon"><svg aria-hidden="true" fill="none" focusable="false" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="m4 18 5-6 4 3 7-9"></path><path d="M15 6h5v5"></path></svg></span><span class="map-copy"><strong>Resultados</strong><span>Controle e decisão</span></span><span class="check">✓</span></div>
+</div>
+</div>
+</div>
+</section>
+<section aria-label="Áreas atendidas" class="intro-strip">
+<div class="container intro-grid">
+<div><p class="intro-label">Integração entre processos, sistemas e tecnologia.</p></div>
+<div><strong>Implantação</strong><span>Do diagnóstico à entrada em produção</span></div>
+<div><strong>Otimização</strong><span>Mais aderência e eficiência operacional</span></div>
+<div><strong>Sustentação</strong><span>Evolução contínua com segurança</span></div>
+</div>
+</section>
+<section aria-labelledby="publico-titulo" class="audience" id="publico"><div class="container"><h2 id="publico-titulo">Para quem trabalhamos</h2><p>Empresas que estão implantando um ERP, enfrentam dificuldades na operação atual, precisam integrar sistemas ou desejam melhorar seus indicadores de gestão. O trabalho considera os processos, a equipe e as prioridades de cada negócio.</p></div></section>
+<section aria-labelledby="servicos-titulo" class="section" id="servicos">
+<div class="container">
+<div class="section-head">
+<p class="eyebrow">Soluções</p>
+<h2 id="servicos-titulo">Consultoria que conecta operação, sistemas e decisão.</h2>
+<p>Cada trabalho parte da realidade operacional para transformar o ERP em uma plataforma confiável para executar processos e produzir informações.</p>
+</div>
+<div class="services-grid">
+<article class="service-card">
+<div class="card-number"><span>01</span><span class="card-icon"><svg aria-hidden="true" fill="none" focusable="false" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h10M4 18h7"></path><circle cx="18" cy="16" r="3"></circle></svg></span></div>
+<h3>Processos e análise de aderência</h3>
+<p>Mapeamento do fluxo atual, identificação de gargalos e desenho do processo futuro alinhado às capacidades do sistema.</p>
+<p class="deliverables"><strong>Entregas:</strong> fluxos atuais, requisitos priorizados, análise de gargalos e desenho do processo futuro.</p>
+<a aria-label="Conversar sobre processos e análise de aderência" class="service-link" href="#contato">Conversar sobre este serviço</a></article>
+<article class="service-card">
+<div class="card-number"><span>02</span><span class="card-icon"><svg aria-hidden="true" fill="none" focusable="false" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"></path></svg></span></div>
+<h3>Implantação e evolução de ERP</h3>
+<p>Planejamento, parametrização, migração, testes, treinamento e entrada em produção com governança em todas as etapas.</p>
+<p class="deliverables"><strong>Entregas:</strong> plano de implantação, parametrização, testes, treinamento e acompanhamento da entrada em produção.</p>
+<a aria-label="Conversar sobre implantação e evolução de erp" class="service-link" href="#contato">Conversar sobre este serviço</a></article>
+<article class="service-card">
+<div class="card-number"><span>03</span><span class="card-icon"><svg aria-hidden="true" fill="none" focusable="false" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 7H5a3 3 0 0 0-3 3v4a3 3 0 0 0 3 3h3M16 7h3a3 3 0 0 1 3 3v4a3 3 0 0 1-3 3h-3M8 12h8"></path></svg></span></div>
+<h3>Integrações e automações</h3>
+<p>Conexão do ERP com sistemas corporativos, serviços externos e rotinas automatizadas para reduzir retrabalho e riscos.</p>
+<p class="deliverables"><strong>Entregas:</strong> desenho técnico, regras de negócio, validação das integrações e critérios de monitoramento.</p>
+<a aria-label="Conversar sobre integrações e automações" class="service-link" href="#contato">Conversar sobre este serviço</a></article>
+<article class="service-card">
+<div class="card-number"><span>04</span><span class="card-icon"><svg aria-hidden="true" fill="none" focusable="false" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"></path></svg></span></div>
+<h3>Dados, relatórios e indicadores</h3>
+<p>Relatórios, painéis e informações extraídas do ERP para apoiar controles, conformidade e tomada de decisão.</p>
+<p class="deliverables"><strong>Entregas:</strong> indicadores, relatórios, dashboards e critérios de qualidade e governança dos dados.</p>
+<a aria-label="Conversar sobre dados, relatórios e indicadores" class="service-link" href="#contato">Conversar sobre este serviço</a></article>
+</div>
+</div>
+</section>
+<section aria-labelledby="metodo-titulo" class="section process" id="metodo">
+<div class="container">
+<div class="section-head">
+<p class="eyebrow">Método de trabalho</p>
+<h2 id="metodo-titulo">Clareza do diagnóstico à evolução contínua.</h2>
+</div>
+<ol class="process-grid">
+<li class="process-step"><h3>Entender</h3><p>Objetivos, processos, riscos, requisitos e prioridades do negócio.</p></li>
+<li class="process-step"><h3>Desenhar</h3><p>Solução, escopo, cronograma, responsabilidades e critérios de sucesso.</p></li>
+<li class="process-step"><h3>Implantar</h3><p>Configuração, validação, capacitação e condução cuidadosa da mudança.</p></li>
+<li class="process-step"><h3>Evoluir</h3><p>Acompanhamento, indicadores e melhorias orientadas por resultados.</p></li>
+</ol>
+<p class="method-note">As entregas, os prazos e as responsabilidades são definidos conforme o cenário e o escopo acordado.</p></div>
+</section>
+<section aria-labelledby="experiencia-titulo" class="section" id="experiencia">
+<div class="container about-grid">
+<aside class="experience-card">
+<span class="big">1994</span>
+<h3>o início de uma trajetória conectando pessoas, processos e sistemas.</h3>
+<p>Experiência profissional anterior em projetos de implantação, migração, conformidade, dados gerenciais e condução da mudança.</p>
+</aside>
+<div class="about-copy">
+<p class="eyebrow">Como conduzimos os projetos</p>
+<h2 id="experiencia-titulo">Experiência e coordenação em cada etapa do projeto.</h2>
+<p>A Primary Key Consultoria atua na melhoria de processos, implantação e evolução de ERP, integração de sistemas e organização de dados. Coordenamos o trabalho com escopo, responsabilidades e acompanhamento definidos conforme a realidade de cada operação.</p>
+<p>Essa atuação é sustentada pela trajetória profissional do fundador, iniciada em 1994 em tecnologia e sistemas integrados. A experiência orienta o diagnóstico e a condução técnica dos projetos, com independência para trabalhar com diferentes plataformas e fornecedores.</p>
+<div class="competencies">
+<div class="competency"><svg aria-hidden="true" fill="none" focusable="false" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"></path></svg><div><strong>Gestão de projetos e mudanças</strong><span>Governança, comunicação e condução das equipes.</span></div></div>
+<div class="competency"><svg aria-hidden="true" fill="none" focusable="false" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"></path></svg><div><strong>Mapeamento e melhoria de processos</strong><span>Aderência sistêmica com foco na realidade operacional.</span></div></div>
+<div class="competency"><svg aria-hidden="true" fill="none" focusable="false" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"></path></svg><div><strong>Dados e conformidade sistêmica</strong><span>Informações confiáveis para controles, decisões e obrigações corporativas.</span></div></div>
+</div>
+</div>
+</div>
+</section>
+<section aria-labelledby="contato-titulo" class="section contact" id="contato">
+<div class="container contact-grid">
+<div class="contact-copy">
+<p class="eyebrow">Vamos conversar</p>
+<h2 id="contato-titulo">Qual é o próximo desafio do seu ERP?</h2>
+<p>Conte brevemente o cenário da sua empresa. A conversa inicial ajuda a identificar prioridades e o melhor caminho para o projeto.</p>
+<div class="contact-details">
+<a href="mailto:contato@primarykeyconsultoria.com.br">contato@primarykeyconsultoria.com.br</a>
+<a href="https://wa.me/5531984311150" rel="noopener noreferrer" target="_blank">WhatsApp: (31) 98431-1150</a>
+</div>
+</div>
+<form action="https://formspree.io/f/xjyvkaze" aria-describedby="form-note" class="contact-form" method="post">
+<div class="form-grid">
+<div class="field"><label for="nome">Nome</label><input autocomplete="name" id="nome" name="nome" required="" type="text"/></div>
+<div class="field"><label for="email">E-mail corporativo</label><input autocomplete="email" id="email" name="email" required="" type="email"/></div>
+<div class="field"><label for="empresa">Empresa</label><input autocomplete="organization" id="empresa" name="empresa" type="text"/></div>
+<div class="field"><label for="telefone">Telefone ou WhatsApp (opcional)</label><input autocomplete="tel" id="telefone" name="telefone" type="tel" maxlength="30"/></div>
+<div class="field field--full"><label for="mensagem">Como podemos ajudar?</label><textarea id="mensagem" name="mensagem" placeholder="Ex.: implantação, revisão de processos, integração ou sustentação do ERP" required=""></textarea></div>
+</div>
+<div class="consent"><input id="consentimento" name="consentimento" type="checkbox" value="Autorizo o uso dos dados para responder a esta solicitação" required/><label for="consentimento">Autorizo o uso dos dados informados para responder a esta solicitação, conforme o <a href="#privacidade">aviso de privacidade</a>.</label></div>
+<button class="button submit" type="submit">Descrever meu desafio <svg aria-hidden="true" fill="none" focusable="false" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="m5 12 14 0m-6-6 6 6-6 6"></path></svg></button>
+<p class="response-note">Após o envio, entraremos em contato para entender seu contexto e avaliar os próximos passos.</p>
+<p class="form-note" id="form-note">Campos obrigatórios: nome, e-mail, mensagem e autorização de contato. Empresa e telefone são opcionais. Os dados são encaminhados à Primary Key pelo Formspree para responder à sua solicitação. <a href="#privacidade">Saiba como os dados deste formulário são utilizados.</a></p>
+<p aria-atomic="true" aria-live="polite" class="form-status" id="form-status" role="status"></p></form>
+</div>
+</section>
+<section aria-labelledby="privacidade-titulo" class="section privacy" id="privacidade"><div class="container"><h2 id="privacidade-titulo">Privacidade no contato</h2><p>O formulário solicita nome, e-mail, mensagem e autorização de contato. Empresa e telefone ou WhatsApp são opcionais. Esses dados são encaminhados à Primary Key Consultoria para analisar e responder à sua solicitação. Evite enviar senhas, documentos pessoais ou informações confidenciais da sua operação.</p><p>O envio é processado pelo Formspree, fornecedor do serviço de formulários. Para conhecer as práticas desse fornecedor, consulte sua política de privacidade.</p><a class="service-link" href="https://formspree.io/legal/privacy-policy/">Política de privacidade do Formspree</a><p>Para dúvidas sobre o uso dos dados ou solicitações de acesso, correção ou exclusão, entre em contato com a Primary Key pelo e-mail abaixo.</p><a class="service-link" href="mailto:contato@primarykeyconsultoria.com.br">contato@primarykeyconsultoria.com.br</a></div></section></main>
+<footer class="site-footer">
+<div class="container footer-wrap">
+<p class="footer-mark">Primary Key <span>Consultoria</span></p>
+<p>© <span id="ano">2026</span> Primary Key Consultoria. Todos os direitos reservados.</p>
+<a href="#privacidade">Privacidade</a></div>
+</footer>
+<a aria-label="Conversar pelo WhatsApp" class="whatsapp" href="https://wa.me/5531984311150?text=Olá%2C%20gostaria%20de%20conversar%20sobre%20um%20projeto%20de%20ERP." rel="noopener noreferrer" target="_blank">
+<svg aria-hidden="true" fill="none" focusable="false" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M20.5 11.7a8.4 8.4 0 0 1-12.4 7.4L3.5 20.5l1.4-4.4A8.4 8.4 0 1 1 20.5 11.7Z"></path><path d="M8.2 7.6c.2-.4.4-.4.7-.4h.5c.2 0 .4.1.5.4l.8 2c.1.3 0 .5-.1.7l-.6.7c-.2.2-.2.4-.1.6.7 1.4 1.7 2.5 3.2 3.1.2.1.4.1.6-.1l.8-1c.2-.2.4-.3.7-.2l1.9.9c.3.1.4.3.4.6 0 .5-.2 1.4-.7 1.8-.5.5-1.4.8-2.2.8-1.2 0-3.4-.7-5.3-2.5-1.5-1.4-2.8-3.7-2.8-5.6 0-.8.3-1.4.7-1.8Z"></path></svg>
+</a>
+<script>
+    const toggle = document.querySelector('.menu-toggle');
+    const menu = document.querySelector('.nav-list');
+    const closeMenu = () => {
+      menu.dataset.open = 'false';
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', 'Abrir menu');
+    };
+    toggle.addEventListener('click', () => {
+      const open = menu.dataset.open !== 'true';
+      menu.dataset.open = String(open);
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+    });
+    menu.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+    window.addEventListener('resize', () => { if (window.innerWidth > 900) closeMenu(); });
+    document.getElementById('ano').textContent = new Date().getFullYear();
+  </script>
+<script>
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape' && menu.dataset.open === 'true') {
+    closeMenu(); toggle.focus();
+  }
+});
+</script><script>(() => {
+  const form = document.querySelector('.contact-form');
+  const button = form.querySelector('[type="submit"]');
+  const status = document.getElementById('form-status');
+  let sending = false;
+  form.addEventListener('submit', async event => {
+    event.preventDefault();
+    if (sending || !form.reportValidity()) return;
+    const data = new FormData(form);
+    const originalLabel = button.innerHTML;
+    sending = true;
+    button.disabled = true;
+    button.textContent = 'Enviando…';
+    form.setAttribute('aria-busy', 'true');
+    status.dataset.state = 'pending';
+    status.textContent = 'Aguarde a confirmação do envio.';
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 30000);
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST', body: data, headers: { Accept: 'application/json' },
+        signal: controller.signal
+      });
+      const result = await response.json();
+      if (!response.ok || result.ok !== true) throw new Error('unconfirmed');
+      form.reset();
+      status.dataset.state = 'success';
+      status.textContent = 'Solicitação recebida! Obrigado pelo contato. Nossa equipe retornará pelo e-mail informado.';
+    } catch (error) {
+      status.dataset.state = 'error';
+      status.textContent = 'Não foi possível confirmar o envio. Seus dados foram mantidos. Confira sua conexão e tente novamente ou use o e-mail ou WhatsApp ao lado.';
+    } finally {
+      clearTimeout(timeout);
+      sending = false;
+      button.disabled = false;
+      button.innerHTML = originalLabel;
+      form.removeAttribute('aria-busy');
+    }
+  });
+})();
+
+(() => {
+ const contact = document.getElementById('contato');
+ if ('IntersectionObserver' in window) {
+   new IntersectionObserver(entries => {
+     document.body.classList.toggle('contact-visible', entries[0].isIntersecting);
+   }).observe(contact);
+ }
+})();
+</script></body>
 </html>

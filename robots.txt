@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.primarykeyconsultoria.com.br/sitemap.xml
