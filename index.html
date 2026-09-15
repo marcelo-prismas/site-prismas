@@ -7,7 +7,20 @@
 <meta content="#0d1922" name="theme-color"/>
 <meta content="Consultoria especializada em implantação, otimização e sustentação de ERP, integração de sistemas, processos e inteligência de dados." name="description"/>
 <title>Primary Key Consultoria | Implantação e Otimização de ERP</title>
-<link href="primary-key-logo.png" rel="icon" type="image/png"/>
+<link href="favicon.png" rel="icon" type="image/png" sizes="512x512"/>
+<meta property="og:type" content="website"/>
+<meta property="og:locale" content="pt_BR"/>
+<meta property="og:site_name" content="Primary Key Consultoria"/>
+<meta property="og:title" content="Primary Key Consultoria | Implantação e evolução de ERP"/>
+<meta property="og:description" content="Liderança experiente e especialistas mobilizados conforme o projeto para conectar processos, sistemas e dados."/>
+<meta property="og:url" content="https://www.primarykeyconsultoria.com.br/"/>
+<meta property="og:image" content="https://www.primarykeyconsultoria.com.br/og.png"/>
+<meta property="og:image:alt" content="Primary Key Consultoria — implantação e evolução de ERP. Especialistas para cada projeto."/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Primary Key Consultoria | Implantação e evolução de ERP"/>
+<meta name="twitter:description" content="Liderança experiente e especialistas mobilizados conforme o projeto para conectar processos, sistemas e dados."/>
+<meta name="twitter:image" content="https://www.primarykeyconsultoria.com.br/og.png"/>
+<meta name="twitter:image:alt" content="Primary Key Consultoria — implantação e evolução de ERP. Especialistas para cada projeto."/>
 <style>
     :root {
       --ink: #10202b;
@@ -267,7 +280,7 @@ label { font-size:.875rem; } .card-number { color:#80621f; }
 .map-row { grid-template-columns:38px minmax(0,1fr) auto; }
 .map-copy { overflow-wrap:anywhere; }
 @media(max-width:360px) { .nav-wrap { gap:12px; } .hero-panel { padding:16px; } .map-row { padding:10px; gap:8px; } }
-</style><meta content="2026-09-11.1" name="site-version"/><style>
+</style><meta content="2026-09-14.1" name="site-version"/><style>
 input, textarea, button { scroll-margin-top:120px; }
 /* Contato móvel: acesso WhatsApp explícito, sem sobrepor campos e envio. */
 body.contact-visible > .whatsapp { visibility:hidden; pointer-events:none; }
@@ -287,6 +300,9 @@ button:disabled { cursor:wait; opacity:.7; }
 .audience h2 { font-size:2rem; margin-bottom:20px; }
 .audience p { max-width:78ch; color:var(--muted); }
 .response-note { margin-top:14px; font-size:.95rem; }
+.proof-item span, .panel-top span, .live-dot, .map-copy span {
+  font-size:.9rem; line-height:1.5; color:#c6d0d5;
+}
 h1,h2,h3,.eyebrow,.panel-top span,.experience-card .big { letter-spacing:0; }
 h1 { font-size:4rem; } h2 { font-size:2.75rem; }
 .hero-lead { font-size:1.2rem; } .service-card h3 { font-size:1.6rem; }
@@ -408,9 +424,9 @@ h1 { font-size:4rem; } h2 { font-size:2.75rem; }
 </aside>
 <div class="about-copy">
 <p class="eyebrow">Como conduzimos os projetos</p>
-<h2 id="experiencia-titulo">Experiência e coordenação em cada etapa do projeto.</h2>
-<p>A Primary Key Consultoria reúne experiência em tecnologia, processos e sistemas integrados e mobiliza competências especializadas conforme as necessidades de cada projeto.</p>
-<p>Sob liderança técnica construída desde 1994, coordenamos projetos de diagnóstico, governança, implantação e otimização de ERP, integração de sistemas e inteligência de dados, com atuação adequada ao escopo e à realidade de cada operação.</p>
+<h2 id="experiencia-titulo">Experiência na liderança. Especialistas para cada projeto.</h2>
+<p>A Primary Key Consultoria combina a experiência de Marcelo Campos em implantação de sistemas com uma rede de especialistas que podem ser mobilizados conforme as necessidades de cada projeto.</p>
+<p>A composição da equipe considera o escopo, as competências necessárias e as etapas do trabalho, com coordenação centralizada para integrar as frentes de atuação e manter clareza sobre responsabilidades e entregas.</p>
 <div class="competencies">
   <div class="competency">
     <svg
@@ -466,6 +482,8 @@ h1 { font-size:4rem; } h2 { font-size:2.75rem; }
     </div>
   </div>
 </div>
+</div>
+</div>
 </section>
 <section aria-labelledby="contato-titulo" class="section contact" id="contato">
 <div class="container contact-grid">
@@ -482,12 +500,12 @@ h1 { font-size:4rem; } h2 { font-size:2.75rem; }
 <div class="form-grid">
 <div class="field"><label for="nome">Nome</label><input autocomplete="name" id="nome" name="nome" required="" type="text"/></div>
 <div class="field"><label for="email">E-mail corporativo</label><input autocomplete="email" id="email" name="email" required="" type="email"/></div>
-<div class="field"><label for="empresa">Empresa</label><input autocomplete="organization" id="empresa" name="empresa" type="text"/></div>
+<div class="field"><label for="empresa">Empresa (opcional)</label><input autocomplete="organization" id="empresa" name="empresa" type="text"/></div>
 <div class="field"><label for="telefone">Telefone ou WhatsApp (opcional)</label><input autocomplete="tel" id="telefone" name="telefone" type="tel" maxlength="30"/></div>
 <div class="field field--full"><label for="mensagem">Como podemos ajudar?</label><textarea id="mensagem" name="mensagem" placeholder="Ex.: implantação, revisão de processos, integração ou sustentação do ERP" required=""></textarea></div>
 </div>
 <div class="consent"><input id="consentimento" name="consentimento" type="checkbox" value="Autorizo o uso dos dados para responder a esta solicitação" required/><label for="consentimento">Autorizo o uso dos dados informados para responder a esta solicitação, conforme o <a href="#privacidade">aviso de privacidade</a>.</label></div>
-<button class="button submit" type="submit">Descrever meu desafio <svg aria-hidden="true" fill="none" focusable="false" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="m5 12 14 0m-6-6 6 6-6 6"></path></svg></button>
+<button class="button submit" type="submit">Enviar solicitação <svg aria-hidden="true" fill="none" focusable="false" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="m5 12 14 0m-6-6 6 6-6 6"></path></svg></button>
 <p class="response-note">Após o envio, entraremos em contato para entender seu contexto e avaliar os próximos passos.</p>
 <p class="form-note" id="form-note">Campos obrigatórios: nome, e-mail, mensagem e autorização de contato. Empresa e telefone são opcionais. Os dados são encaminhados à Primary Key pelo Formspree para responder à sua solicitação. <a href="#privacidade">Saiba como os dados deste formulário são utilizados.</a></p>
 <p aria-atomic="true" aria-live="polite" class="form-status" id="form-status" role="status"></p></form>
