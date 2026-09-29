@@ -208,6 +208,23 @@
             <p>&copy; 2026 Primary Key Consultoria — Todos os direitos reservados.</p>
         </footer>
     </div>
+<!-- Botão flutuante para voltar ao início -->
+<a id="btn-voltar-home" href="/" aria-label="Voltar à página inicial" style="display: none; position: fixed; bottom: 24px; left: 24px; z-index: 1000; background: #0F172A; color: #FFFFFF; padding: 10px 18px; border-radius: 999px; text-decoration: none; font-size: 0.85rem; font-weight: 600; box-shadow: 0 4px 14px rgba(0,0,0,0.2); transition: opacity 0.3s ease;">
+  ← Voltar ao Início
+</a>
 
+<!-- Script que faz o botão aparecer apenas quando rolar a página -->
+<script>
+  window.addEventListener('scroll', function() {
+    var btn = document.getElementById('btn-voltar-home');
+    if (btn) {
+      if (window.scrollY > 300) {
+        btn.style.display = 'inline-flex';
+      } else {
+        btn.style.display = 'none';
+      }
+    }
+  });
+</script>
 </body>
 </html>
