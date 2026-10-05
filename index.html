@@ -92,7 +92,7 @@
     /* Navegação */
     .site-header {
       position: sticky; top: 0; z-index: 50; height: 82px;
-      background: rgba(247, 248, 246, .92); border-bottom: 1px solid rgba(16,32,43,.08);
+      background: rgba(247, 248, 246, .92); border-bottom: none;
       backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
     }
     .nav-wrap { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
@@ -279,7 +279,7 @@ label { font-size:.875rem; } .card-number { color:#80621f; }
 .map-row { grid-template-columns:38px minmax(0,1fr) auto; }
 .map-copy { overflow-wrap:anywhere; }
 @media(max-width:360px) { .nav-wrap { gap:12px; } .hero-panel { padding:16px; } .map-row { padding:10px; gap:8px; } }
-</style><meta content="2026-10-05.1" name="site-version"/><style>
+</style><meta content="2026-10-05.3" name="site-version"/><style>
 input, textarea, button { scroll-margin-top:120px; }
 body.contact-visible > .whatsapp { visibility:hidden; pointer-events:none; }
 .form-status { margin-top:18px; font-size:1rem; line-height:1.5; overflow-wrap:anywhere; }
@@ -413,8 +413,8 @@ h1 { font-size:4rem; } h2 { font-size:2.75rem; }
 <div class="container about-grid">
 <aside class="experience-card">
   <span class="big" style="margin-bottom: 2rem;">1994</span>
-  <h3>O início de uma trajetória em tecnologia, processos e sistemas integrados.</h3>
-  <p>Experiência em projetos de implantação, migração, conformidade, dados gerenciais e gestão da mudança.</p>
+  <h3>O início da trajetória profissional do fundador em tecnologia, processos e sistemas integrados.</h3>
+  <p>Experiência acumulada na liderança de projetos de implantação, migração, conformidade fiscal, dados gerenciais e gestão da mudança.</p>
 </aside>
 <div class="about-copy">
 <p class="eyebrow">Como conduzimos os projetos</p>
@@ -462,152 +462,4 @@ h1 { font-size:4rem; } h2 { font-size:2.75rem; }
 <div class="form-grid">
 <div class="field"><label for="nome">Nome</label><input autocomplete="name" id="nome" name="nome" required="" type="text"/></div>
 <div class="field"><label for="email">E-mail corporativo</label><input autocomplete="email" id="email" name="email" required="" type="email"/></div>
-<div class="field"><label for="empresa">Empresa (opcional)</label><input autocomplete="organization" id="empresa" name="empresa" type="text"/></div>
-<div class="field"><label for="telefone">Telefone ou WhatsApp (opcional)</label><input autocomplete="tel" id="telefone" name="telefone" type="tel" maxlength="30"/></div>
-<div class="field field--full"><label for="mensagem">Como podemos ajudar?</label><textarea id="mensagem" name="mensagem" placeholder="Ex.: adequação à Reforma Tributária, revisão de regras de processo ou inteligência de dados" required=""></textarea></div>
-</div>
-<div class="consent"><input id="consentimento" name="consentimento" type="checkbox" value="Autorizo o uso dos dados para responder a esta solicitação" required/><label for="consentimento">Autorizo o uso dos dados informados para responder a esta solicitação, conforme a <a href="/privacidade.html">Política de Privacidade</a>.</label></div>
-<button class="button submit" type="submit">Enviar solicitação <svg aria-hidden="true" fill="none" focusable="false" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="m5 12 14 0m-6-6 6 6-6 6"></path></svg></button>
-<p class="response-note">Após o envio, entraremos em contato para entender seu contexto e avaliar os próximos passos.</p>
-<p class="form-note" id="form-note">Campos obrigatórios: nome, e-mail, mensagem e autorização de contato. Empresa e telefone são opcionais. Os dados são encaminhados à Primary Key pelo Formspree para responder à sua solicitação. <a href="/privacidade.html">Saiba como os dados deste formulário são utilizados.</a></p>
-<p aria-atomic="true" aria-live="polite" class="form-status" id="form-status" role="status"></p></form>
-</div>
-</section>
-</main>
-
-<footer class="site-footer">
-  <div class="container footer-wrap" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem;">
-    
-    <!-- Marca -->
-    <div>
-      <p class="footer-mark" style="margin: 0; line-height: 1.2;">Primary Key <span style="display: block; color: var(--gold);">Consultoria</span></p>
-    </div>
-
-    <!-- Links Legais em Linha Única -->
-    <div style="display: flex; align-items: center; gap: 0.8rem; white-space: nowrap;">
-      <a class="footer-privacy" href="/termos-de-uso.html" style="color: #c6d0d5; text-decoration: underline; text-underline-offset: 4px; font-size: 0.9rem; white-space: nowrap;">Termos de Uso</a>
-      <span style="color: #5e6e78; opacity: 0.7;">|</span>
-      <a class="footer-privacy" href="/privacidade.html" style="color: #c6d0d5; text-decoration: underline; text-underline-offset: 4px; font-size: 0.9rem; white-space: nowrap;">Política de Privacidade</a>
-    </div>
-
-    <!-- Direitos Reservados e CNPJ -->
-    <div style="text-align: right; font-size: 0.85rem; color: #899aa4; line-height: 1.4;">
-      <p style="margin: 0; white-space: nowrap;">© <span id="ano">2026</span> Primary Key Consultoria (Prismas Consulting Ltda.). Todos os direitos reservados.</p>
-      <p style="margin: 0; font-size: 0.8rem; color: #5e6e78;">CNPJ: 68.951.804/0001-00 • Contagem - MG</p>
-    </div>
-
-  </div>
-</footer>
-
-<a aria-label="Conversar pelo WhatsApp" class="whatsapp" href="https://wa.me/5531984311150?text=Olá%2C%20gostaria%20de%20conversar%20sobre%20um%20projeto." rel="noopener noreferrer" target="_blank">
-<svg aria-hidden="true" fill="none" focusable="false" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M20.5 11.7a8.4 8.4 0 0 1-12.4 7.4L3.5 20.5l1.4-4.4A8.4 8.4 0 1 1 20.5 11.7Z"></path><path d="M8.2 7.6c.2-.4.4-.4.7-.4h.5c.2 0 .4.1.5.4l.8 2c.1.3 0 .5-.1.7l-.6.7c-.2.2-.2.4-.1.6.7 1.4 1.7 2.5 3.2 3.1.2.1.4.1.6-.1l.8-1c.2-.2.4-.3.7-.2l1.9.9c.3.1.4.3.4.6 0 .5-.2 1.4-.7 1.8-.5.5-1.4.8-2.2.8-1.2 0-3.4-.7-5.3-2.5-1.5-1.4-2.8-3.7-2.8-5.6 0-.8.3-1.4.7-1.8Z"></path></svg>
-</a>
-
-<!-- Banner de Cookies LGPD -->
-<div id="cookie-banner" style="display: none; position: fixed; bottom: 1.5rem; left: 1.5rem; right: 1.5rem; max-width: 540px; background: #0F172A; color: #FFFFFF; padding: 1.2rem; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.3); z-index: 9999; font-size: 0.88rem; line-height: 1.5;">
-  <p style="margin-bottom: 0.75rem;">
-    Utilizamos cookies essenciais para o funcionamento seguro do site. Ao continuar navegando, você concorda com nossos 
-    <a href="/termos-de-uso.html" style="color: #60A5FA; text-decoration: underline;">Termos de Uso</a> e 
-    <a href="/privacidade.html" style="color: #60A5FA; text-decoration: underline;">Política de Privacidade</a>.
-  </p>
-  <div style="display: flex; justify-content: flex-end;">
-    <button onclick="aceitarCookies()" style="background-color: #2563EB; color: #FFFFFF; border: none; padding: 0.45rem 1.1rem; border-radius: 4px; font-weight: 600; cursor: pointer;">
-      Aceitar e Prosseguir
-    </button>
-  </div>
-</div>
-
-<script>
-    const toggle = document.querySelector('.menu-toggle');
-    const menu = document.querySelector('.nav-list');
-    const closeMenu = () => {
-      menu.dataset.open = 'false';
-      toggle.setAttribute('aria-expanded', 'false');
-      toggle.setAttribute('aria-label', 'Abrir menu');
-    };
-    toggle.addEventListener('click', () => {
-      const open = menu.dataset.open !== 'true';
-      menu.dataset.open = String(open);
-      toggle.setAttribute('aria-expanded', String(open));
-      toggle.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
-    });
-    menu.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
-    window.addEventListener('resize', () => { if (window.innerWidth > 900) closeMenu(); });
-    document.getElementById('ano').textContent = new Date().getFullYear();
-</script>
-<script>
-document.addEventListener('keydown', event => {
-  if (event.key === 'Escape' && menu.dataset.open === 'true') {
-    closeMenu(); toggle.focus();
-  }
-});
-</script>
-<script>
-(() => {
-  const form = document.querySelector('.contact-form');
-  const button = form.querySelector('[type="submit"]');
-  const status = document.getElementById('form-status');
-  let sending = false;
-  form.addEventListener('submit', async event => {
-    event.preventDefault();
-    if (sending || !form.reportValidity()) return;
-    const data = new FormData(form);
-    const originalLabel = button.innerHTML;
-    sending = true;
-    button.disabled = true;
-    button.textContent = 'Enviando…';
-    form.setAttribute('aria-busy', 'true');
-    status.dataset.state = 'pending';
-    status.textContent = 'Aguarde a confirmação do envio.';
-    const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 30000);
-    try {
-      const response = await fetch(form.action, {
-        method: 'POST', body: data, headers: { Accept: 'application/json' },
-        signal: controller.signal
-      });
-      const result = await response.json();
-      if (!response.ok || result.ok !== true) throw new Error('unconfirmed');
-      form.reset();
-      status.dataset.state = 'success';
-      status.textContent = 'Solicitação recebida! Obrigado pelo contato. Nossa equipe retornará pelo e-mail informado.';
-    } catch (error) {
-      status.dataset.state = 'error';
-      status.textContent = 'Não foi possível confirmar o envio. Seus dados foram mantidos. Confira sua conexão e tente novamente ou use o e-mail ou WhatsApp ao lado.';
-    } finally {
-      clearTimeout(timeout);
-      sending = false;
-      button.disabled = false;
-      button.innerHTML = originalLabel;
-      form.removeAttribute('aria-busy');
-    }
-  });
-})();
-
-(() => {
- const contact = document.getElementById('contato');
- if ('IntersectionObserver' in window) {
-   new IntersectionObserver(entries => {
-     document.body.classList.toggle('contact-visible', entries[0].isIntersecting);
-   }).observe(contact);
- }
-})();
-
-function verificarCookies() {
-  if (!localStorage.getItem('pk_cookies_aceitos')) {
-    var banner = document.getElementById('cookie-banner');
-    if (banner) banner.style.display = 'block';
-  }
-}
-
-function aceitarCookies() {
-  localStorage.setItem('pk_cookies_aceitos', 'true');
-  var banner = document.getElementById('cookie-banner');
-  if (banner) banner.style.display = 'none';
-}
-
-window.addEventListener('DOMContentLoaded', verificarCookies);
-</script>
-
-</body>
-</html>
+<div class="field"><label for="empresa">Empresa (opcional)</label><input autocomplete="organization"
