@@ -313,7 +313,7 @@ label { font-size:.875rem; } .card-number { color:#80621f; }
 .map-row { grid-template-columns:38px minmax(0,1fr) auto; }
 .map-copy { overflow-wrap:anywhere; }
 @media(max-width:360px) { .nav-wrap { gap:12px; } .hero-panel { padding:16px; } .map-row { padding:10px; gap:8px; } }
-</style><meta content="2026-10-05.4" name="site-version"/><style>
+</style><meta content="2026-10-06.1" name="site-version"/><style>
 input, textarea, button { scroll-margin-top:120px; }
 body.contact-visible > .whatsapp { visibility:hidden; pointer-events:none; }
 .form-status { margin-top:18px; font-size:1rem; line-height:1.5; overflow-wrap:anywhere; }
@@ -501,4 +501,41 @@ h1 { font-size:4rem; } h2 { font-size:2.75rem; }
 <div class="field field--full"><label for="mensagem">Como podemos ajudar?</label><textarea id="mensagem" name="mensagem" placeholder="Ex.: adequação à Reforma Tributária, revisão de regras de processo ou inteligência de dados" required=""></textarea></div>
 </div>
 <div class="consent"><input id="consentimento" name="consentimento" type="checkbox" value="Autorizo o uso dos dados para responder a esta solicitação" required/><label for="consentimento">Autorizo o uso dos dados informados para responder a esta solicitação, conforme a <a href="/privacidade.html">Política de Privacidade</a>.</label></div>
-<button class="button submit" type="submit">Enviar solicitação <svg aria-hidden="true" fill="none" focusable="false" stroke="currentColor" stroke-
+<button class="button submit" type="submit">Enviar solicitação <svg aria-hidden="true" fill="none" focusable="false" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="m5 12 14 0m-6-6 6 6-6 6"></path></svg></button>
+<p class="response-note">Após o envio, entraremos em contato para entender seu contexto e avaliar os próximos passos.</p>
+<p class="form-note" id="form-note">Campos obrigatórios: nome, e-mail, mensagem e autorização de contato. Empresa e telefone são opcionais. Os dados são encaminhados à Primary Key pelo Formspree para responder à sua solicitação. <a href="/privacidade.html">Saiba como os dados deste formulário são utilizados.</a></p>
+<p aria-atomic="true" aria-live="polite" class="form-status" id="form-status" role="status"></p></form>
+</div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    
+    <!-- Marca -->
+    <div>
+      <p style="margin: 0; line-height: 1.2; font-weight: 800; color: #ffffff; font-size: 1.1rem;">
+        Primary Key <span style="display: block; color: #c7a455; font-size: 0.95rem;">Consultoria</span>
+      </p>
+    </div>
+
+    <!-- Links Legais -->
+    <div class="footer-links">
+      <a href="/termos-de-uso.html" style="color: #c6d0d5; text-decoration: underline; text-underline-offset: 4px; font-size: 0.9rem;">Termos de Uso</a>
+      <span style="color: #5e6e78; opacity: 0.7;">|</span>
+      <a href="/privacidade.html" style="color: #c6d0d5; text-decoration: underline; text-underline-offset: 4px; font-size: 0.9rem;">Política de Privacidade</a>
+    </div>
+
+    <!-- Direitos Reservados e CNPJ -->
+    <div class="footer-copy">
+      <p style="margin: 0;">© <span id="ano">2026</span> Primary Key Consultoria (Prismas Consulting Ltda.). Todos os direitos reservados.</p>
+      <p style="margin: 4px 0 0; font-size: 0.8rem; color: #5e6e78;">CNPJ: 68.951.804/0001-00 • Contagem - MG</p>
+    </div>
+
+  </div>
+</footer>
+<a aria-label="Fale conosco pelo WhatsApp" class="whatsapp" href="https://wa.me/5531984311150" rel="noopener noreferrer" target="_blank">
+  <svg aria-hidden="true" fill="currentColor" focusable="false" viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm.01 1.67c2.2 0 4.26.86 5.82 2.42a8.23 8.23 0 0 1 2.41 5.82c0 4.54-3.7 8.24-8.24 8.24-1.45 0-2.87-.38-4.12-1.1l-.3-.17-3.12.82.83-3.04-.19-.31a8.21 8.21 0 0 1-1.26-4.44c0-4.54 3.7-8.24 8.24-8.24zm4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.38-1.72-.14-.25-.01-.39.11-.51.11-.11.25-.29.37-.44.13-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.44.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.06-.11-.22-.18-.47-.3z"/></svg>
+</a>
+</body>
+</html>
