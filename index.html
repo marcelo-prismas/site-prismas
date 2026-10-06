@@ -207,10 +207,38 @@
     input:focus, textarea:focus { border-color: var(--gold); outline: 3px solid rgba(199,164,85,.18); }
     .form-note { margin-top: 12px; color: var(--muted); font-size: .78rem; }
     .submit { margin-top: 20px; width: 100%; border: 0; }
-    .site-footer { padding: 34px 0; color: #899aa4; background: #071016; border-top: 1px solid rgba(255,255,255,.08); }
-    .footer-wrap { display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
-    .footer-mark { color: var(--white); font-weight: 800; }
-    .footer-mark span { color: var(--gold); }
+
+    /* Rodapé Responsivo */
+    .site-footer {
+      padding: 40px 0 80px 0;
+      color: #899aa4;
+      background: #071016;
+      border-top: 1px solid rgba(255,255,255,.08);
+      width: 100%;
+    }
+    .footer-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+    .footer-links {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
+    .footer-copy {
+      text-align: right;
+      font-size: 0.85rem;
+      color: #899aa4;
+      line-height: 1.5;
+    }
+
     .whatsapp {
       position: fixed; right: 24px; bottom: 24px; z-index: 40; width: 58px; height: 58px;
       display: grid; place-items: center; color: var(--white); background: #168a53; border-radius: 50%;
@@ -238,6 +266,14 @@
       .services-grid { grid-template-columns: 1fr; }
       .process-grid { grid-template-columns: 1fr 1fr; row-gap: 46px; }
       .experience-card { position: static; }
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.25rem;
+      }
+      .footer-copy {
+        text-align: left;
+      }
     }
     @media (max-width: 620px) {
       .container { width: min(calc(100% - 28px), var(--max)); }
@@ -252,7 +288,6 @@
       .intro-grid > div, .intro-grid > div:first-child { grid-column: auto; padding: 20px 4px; border-left: 0; border-bottom: 1px solid var(--line); }
       .field--full { grid-column: auto; }
       .process-grid { gap: 46px; }
-      .footer-wrap { align-items: flex-start; flex-direction: column; gap: .5rem; }
       .whatsapp { right: 16px; bottom: 16px; width: 54px; height: 54px; }
     }
     @media (prefers-reduced-motion: reduce) {
@@ -274,7 +309,6 @@ input:focus-visible,textarea:focus-visible { outline:3px solid #126fa2; outline-
 .form-note { font-size:.875rem; } .form-note a { text-decoration:underline; }
 label { font-size:.875rem; } .card-number { color:#80621f; }
 .service-card:first-child .card-number { color:var(--gold-2); }
-.site-footer { padding-bottom:100px; }
 .panel-top { gap:12px; flex-wrap:wrap; }
 .map-row { grid-template-columns:38px minmax(0,1fr) auto; }
 .map-copy { overflow-wrap:anywhere; }
@@ -467,36 +501,4 @@ h1 { font-size:4rem; } h2 { font-size:2.75rem; }
 <div class="field field--full"><label for="mensagem">Como podemos ajudar?</label><textarea id="mensagem" name="mensagem" placeholder="Ex.: adequação à Reforma Tributária, revisão de regras de processo ou inteligência de dados" required=""></textarea></div>
 </div>
 <div class="consent"><input id="consentimento" name="consentimento" type="checkbox" value="Autorizo o uso dos dados para responder a esta solicitação" required/><label for="consentimento">Autorizo o uso dos dados informados para responder a esta solicitação, conforme a <a href="/privacidade.html">Política de Privacidade</a>.</label></div>
-<button class="button submit" type="submit">Enviar solicitação <svg aria-hidden="true" fill="none" focusable="false" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="m5 12 14 0m-6-6 6 6-6 6"></path></svg></button>
-<p class="response-note">Após o envio, entraremos em contato para entender seu contexto e avaliar os próximos passos.</p>
-<p class="form-note" id="form-note">Campos obrigatórios: nome, e-mail, mensagem e autorização de contato. Empresa e telefone são opcionais. Os dados são encaminhados à Primary Key pelo Formspree para responder à sua solicitação. <a href="/privacidade.html">Saiba como os dados deste formulário são utilizados.</a></p>
-<p aria-atomic="true" aria-live="polite" class="form-status" id="form-status" role="status"></p></form>
-</div>
-</section>
-</main>
-
-<footer class="site-footer" style="background-color: #071016; color: #899aa4; padding: 40px 0 60px 0; border-top: 1px solid rgba(255,255,255,0.08); width: 100%;">
-  <div style="max-width: 1180px; margin: 0 auto; padding: 0 20px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem;">
-    
-    <!-- Marca -->
-    <div>
-      <p style="margin: 0; line-height: 1.2; font-weight: 800; color: #ffffff; font-size: 1.1rem;">
-        Primary Key <span style="display: block; color: #c7a455; font-size: 0.95rem;">Consultoria</span>
-      </p>
-    </div>
-
-    <!-- Links Legais -->
-    <div style="display: flex; align-items: center; gap: 0.8rem; white-space: nowrap;">
-      <a href="/termos-de-uso.html" style="color: #c6d0d5; text-decoration: underline; text-underline-offset: 4px; font-size: 0.9rem;">Termos de Uso</a>
-      <span style="color: #5e6e78; opacity: 0.7;">|</span>
-      <a href="/privacidade.html" style="color: #c6d0d5; text-decoration: underline; text-underline-offset: 4px; font-size: 0.9rem;">Política de Privacidade</a>
-    </div>
-
-    <!-- Direitos Reservados e CNPJ -->
-    <div style="text-align: right; font-size: 0.85rem; color: #899aa4; line-height: 1.5;">
-      <p style="margin: 0; white-space: nowrap;">© <span id="ano">2026</span> Primary Key Consultoria (Prismas Consulting Ltda.). Todos os direitos reservados.</p>
-      <p style="margin: 0; font-size: 0.8rem; color: #5e6e78;">CNPJ: 68.951.804/0001-00 • Contagem - MG</p>
-    </div>
-
-  </div>
-</footer>
+<button class="button submit" type="submit">Enviar solicitação <svg aria-hidden="true" fill="none" focusable="false" stroke="currentColor" stroke-
